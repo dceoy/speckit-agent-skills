@@ -6,7 +6,7 @@ Guidelines for editing agent definitions, skills, and prompts in this repository
 
 ### Claude Code Runtime (`.claude/`)
 
-- `.claude/agents/` - Agent definitions for autonomous task execution (codex-ask, codex-exec, codex-review)
+- `.claude/agents/` - Agent definitions for autonomous task execution (codex-ask, codex-exec, codex-review, codex-search)
 - `.claude/commands/` - Command prompt files for Spec Kit workflow (speckit.\*.md)
 - `.claude/skills/` - Skill directories with skill.yaml + SKILL.md (copilot-_, codex-_, speckit-\*)
 
@@ -173,6 +173,16 @@ Use for: Code generation, refactoring, feature implementation, bug fixes, test c
 
 Use for: Pre-commit checks, pull request reviews, security audits, performance analysis, code quality assessment
 
+**codex-search** - Search the web for current information (read-only)
+
+- Searches documentation, best practices, and solutions
+- Finds API references and tutorials
+- Researches library comparisons and approaches
+- Provides sourced, verified information
+- Never modifies code
+
+Use for: Finding documentation, researching solutions, comparing libraries, learning new technologies, troubleshooting errors
+
 ### Usage Patterns
 
 Simply describe your task to Claude Code, and it will launch the appropriate agent:
@@ -186,6 +196,9 @@ Simply describe your task to Claude Code, and it will launch the appropriate age
 
 "Review my changes for security issues"
 → Launches codex-review agent
+
+"What's the best library for JWT authentication in 2026?"
+→ Launches codex-search agent
 ```
 
 ### Workflow Patterns
@@ -206,10 +219,18 @@ Simply describe your task to Claude Code, and it will launch the appropriate age
 
 **Feature Development**
 
-1. Launch codex-ask: Research existing patterns
-2. Launch codex-exec: Implement following patterns
-3. Launch codex-exec: Create tests
-4. Launch codex-review: Review implementation
+1. Launch codex-search: Research best practices and libraries
+2. Launch codex-ask: Understand existing patterns in codebase
+3. Launch codex-exec: Implement following patterns
+4. Launch codex-exec: Create tests
+5. Launch codex-review: Review implementation
+
+**Research → Understand → Execute → Review**
+
+1. Launch codex-search: Find current documentation and approaches
+2. Launch codex-ask: Understand how it fits with current code
+3. Launch codex-exec: Implement the solution
+4. Launch codex-review: Verify quality and security
 
 ### Prerequisites
 
@@ -247,7 +268,8 @@ language = "typescript"
 .claude/agents/
 ├── codex-ask.md     # Question-answering agent
 ├── codex-exec.md    # Execution agent
-└── codex-review.md  # Code review agent
+├── codex-review.md  # Code review agent
+└── codex-search.md  # Web search agent
 ```
 
 ## Spec Kit Workflow
