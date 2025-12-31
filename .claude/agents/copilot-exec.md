@@ -392,15 +392,9 @@ Preview changes before applying.
 **If Copilot CLI is not found:**
 
 ```
-GitHub Copilot CLI is not available. Please install it:
-https://github.com/github/copilot-cli
+GitHub Copilot CLI is not available in PATH. Ensure it is installed per the prerequisites in README.md.
 
-Installation options:
-- npm: npm install -g @github/copilot
-- Homebrew: brew install copilot-cli
-- WinGet: winget install GitHub.Copilot
-
-After installation, authenticate with:
+To authenticate:
 copilot
 # Then run: /login
 ```

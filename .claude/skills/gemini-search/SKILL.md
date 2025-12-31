@@ -366,11 +366,7 @@ After getting search results:
 **If Gemini not found:**
 
 ```
-Gemini CLI is not available. Ensure it's installed and in your PATH.
-
-Install options:
-- npm install -g @google/gemini-cli
-- brew install gemini-cli
+Gemini CLI is not available in PATH. Ensure it is installed per the prerequisites in README.md.
 ```
 
 **If authentication fails:**

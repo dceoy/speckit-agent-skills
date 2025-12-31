@@ -89,7 +89,7 @@ Copilot CLI automatically loads repository instructions if present:
 
 ## Error Handling
 
-- If Copilot is not found, install it and ensure it is on your PATH.
+- If Copilot is not found, ensure it is installed per the prerequisites in README.md and available in PATH.
 - If authentication fails, run `/login` and follow prompts.
 - If the answer is unclear, narrow the question and include file paths.
 
