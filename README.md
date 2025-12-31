@@ -50,7 +50,7 @@ See **[AGENTS.md](./AGENTS.md#spec-kit-workflow)** for the complete workflow gui
 **Skills** (`.claude/skills/`)
 
 - `copilot-ask`, `copilot-exec`, `copilot-review` - GitHub Copilot CLI integration
-- `codex-ask`, `codex-exec`, `codex-review` - OpenAI Codex CLI integration
+- `codex-ask`, `codex-exec`, `codex-review`, `codex-search` - OpenAI Codex CLI integration
 - `speckit-analyze`, `speckit-checklist`, `speckit-clarify`, `speckit-constitution`, `speckit-implement`, `speckit-plan`, `speckit-specify`, `speckit-tasks`, `speckit-taskstoissues` - Spec Kit workflow
 
 **Agents** (`.claude/agents/`)
