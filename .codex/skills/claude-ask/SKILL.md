@@ -17,18 +17,10 @@ Use Claude Code CLI to answer questions about code without making modifications.
 
 ## Prerequisites
 
-Claude Code CLI must be installed and authenticated.
-
-Verify installation:
+Verify Claude Code CLI is available:
 
 ```bash
-claude --version
-```
-
-If missing, install Claude Code CLI and re-run the command:
-
-```bash
-npm install -g @anthropic-ai/claude-code
+claude --version  # Should display installed version
 ```
 
 ## Basic Usage
@@ -84,7 +76,7 @@ claude -p "Explain how authentication works. Include all files involved, the com
 
 ## Error Handling
 
-- If Claude Code CLI is missing, ask the user to install it
+- If Claude Code CLI is not available, ensure it's installed and in your PATH
 - If authentication fails, ask the user to sign in via the CLI
 - If the answer is unclear, ask a more specific question
 

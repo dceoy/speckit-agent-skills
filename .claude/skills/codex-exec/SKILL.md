@@ -18,16 +18,10 @@ Use OpenAI Codex CLI to execute development tasks that involve code modification
 
 ## Prerequisites
 
-Codex CLI must be installed:
+Verify Codex CLI is available:
 
 ```bash
-codex --version  # Verify installation
-```
-
-If not installed, inform user to run:
-
-```bash
-npm install -g @openai/codex
+codex --version  # Should display installed version
 ```
 
 ## Basic Usage

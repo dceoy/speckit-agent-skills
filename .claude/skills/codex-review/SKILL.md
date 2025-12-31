@@ -19,16 +19,10 @@ Use OpenAI Codex CLI to perform automated code reviews that identify issues and 
 
 ## Prerequisites
 
-Codex CLI must be installed:
+Verify Codex CLI is available:
 
 ```bash
-codex --version  # Verify installation
-```
-
-If not installed, inform user to run:
-
-```bash
-npm install -g @openai/codex
+codex --version  # Should display installed version
 ```
 
 ## Basic Usage
@@ -277,8 +271,7 @@ After getting Codex's review:
 **If Codex not found:**
 ```
 
-Codex CLI is not installed. Please install it:
-npm install -g @openai/codex
+Codex CLI is not available. Ensure it's installed and in your PATH.
 
 ````
 
