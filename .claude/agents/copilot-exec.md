@@ -393,21 +393,6 @@ Preview changes before applying.
 
 ```
 GitHub Copilot CLI is not available in PATH. Ensure it is installed per the prerequisites in README.md.
-
-To authenticate:
-copilot
-# Then run: /login
-```
-
-**If authentication fails:**
-
-```
-Run Copilot CLI and authenticate:
-copilot
-# Then run: /login
-
-Follow the prompts to sign in with your GitHub account.
-Requires active GitHub Copilot subscription.
 ```
 
 **If changes are incorrect:**

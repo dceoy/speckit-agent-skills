@@ -27,8 +27,6 @@ Verify Gemini CLI is available:
 gemini --version  # Should display installed version
 ```
 
-Ensure authentication is configured (OAuth or API key).
-
 ## Basic Usage
 
 ### Step 1: Determine Scope

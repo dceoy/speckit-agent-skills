@@ -156,16 +156,6 @@ Codex CLI is not available. Ensure it's installed and in your PATH.
 
 ```
 
-**If authentication fails:**
-```
-
-Codex CLI needs authentication. Run:
-codex
-
-Then follow the prompts to sign in with ChatGPT or configure API key.
-
-```
-
 **If answer is unclear:**
 - Ask a more specific question
 - Provide more context (file names, features)

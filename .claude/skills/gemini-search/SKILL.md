@@ -28,8 +28,6 @@ Verify Gemini CLI is available:
 gemini --version  # Should display installed version
 ```
 
-Ensure authentication is configured and internet connectivity.
-
 ## Basic Usage
 
 ### Step 1: Parse the Research Need

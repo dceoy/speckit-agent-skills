@@ -25,13 +25,6 @@ Verify GitHub Copilot CLI is available:
 copilot --version
 ```
 
-If needed, launch Copilot CLI and authenticate:
-
-```bash
-copilot
-# Then run: /login
-```
-
 Note: Copilot will ask you to trust the files in the current folder before it can read them.
 
 ## Basic Usage
