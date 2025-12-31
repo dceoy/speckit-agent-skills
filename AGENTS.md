@@ -6,9 +6,9 @@ Guidelines for editing agent definitions, skills, and prompts in this repository
 
 - `.claude/agents/` Claude Code agent definitions (see `.claude/agents/README.md`).
 - `.claude/commands/` Claude Code command prompts (Spec Kit commands).
-- `.claude/skills/` Claude Code skill definitions (`copilot-*`, `codex-*`, `spec-kit-*`).
+- `.claude/skills/` Claude Code skill definitions (`copilot-*`, `codex-*`, `speckit-*`).
 - `.codex/prompts/` Spec Kit prompt content for Codex CLI usage.
-- `.codex/skills/` Codex CLI skill definitions (`claude-*`, `copilot-*`, `spec-kit-*`).
+- `.codex/skills/` Codex CLI skill definitions (`claude-*`, `copilot-*`, `speckit-*`).
 - `.github/agents/` and `.github/prompts/` GitHub automation agents/prompts.
 - `.github/workflows/ci.yml` CI workflows (Claude review/bot runs on PRs).
 - `.specify/` Spec Kit templates and memory files.

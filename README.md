@@ -33,13 +33,13 @@ Each skill lives in a small folder with a `SKILL.md` that documents how to run i
 
 - `copilot-ask`, `copilot-exec`, `copilot-review`
 - `codex-ask`, `codex-exec`, `codex-review`
-- `spec-kit-*` workflow skills
+- `speckit-*` workflow skills
 
 ### Codex CLI (in `.codex/skills/`)
 
 - `claude-ask`, `claude-exec`, `claude-review`
 - `copilot-ask`, `copilot-exec`, `copilot-review`
-- `spec-kit-*` workflow skills
+- `speckit-*` workflow skills
 
 ## Structure
 
@@ -73,7 +73,7 @@ Refer to each tool's official documentation for installation and login steps.
 
 - Skills do not always auto-run; use your agent's skill invocation flow or ask for the skill explicitly.
 - If a skill fails, open its `SKILL.md` and verify prerequisites and command syntax.
-- For Spec Kit, follow the skill sequence described in the `spec-kit-*` skills.
+- For Spec Kit, follow the skill sequence described in the `speckit-*` skills.
 
 ## Troubleshooting
 
