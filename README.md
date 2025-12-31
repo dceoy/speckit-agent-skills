@@ -1,4 +1,4 @@
-# cli-agent-skills
+# ai-coding-agent-skills
 
 Cross-platform agent skills and prompts for AI coding assistants.
 
@@ -33,7 +33,7 @@ See **[AGENTS.md](./AGENTS.md#spec-kit-workflow)** for the complete workflow gui
 1. Clone the repo:
 
    ```bash
-   git clone git@github.com:dceoy/cli-agent-skills.git
+   git clone git@github.com:dceoy/ai-coding-agent-skills.git
    ```
 
 2. Pick a runtime and explore the skills:
