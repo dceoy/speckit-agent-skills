@@ -44,8 +44,7 @@ copilot
 **Requirements:**
 
 - Active GitHub Copilot subscription
-- Node.js v22+
-- npm v10+
+- Node.js v22+ (for Copilot CLI itself)
 
 ## Basic Usage
 
@@ -341,10 +340,9 @@ After getting Copilot's review:
 ```
 GitHub Copilot CLI is not available.
 
-Install it:
-- macOS/Linux: brew install copilot-cli
-- Windows: winget install GitHub.Copilot
-- npm: npm install -g @github/copilot
+Ensure it's installed and available in your PATH:
+- Check: which copilot
+- Verify: copilot --version
 ```
 
 **If too many issues:**

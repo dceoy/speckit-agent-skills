@@ -91,10 +91,10 @@ Follow these guidelines:
 - Follow the project's coding standards
 
 Project context:
-- Language: TypeScript + React
-- Build tool: Vite
-- Package manager: pnpm
-- Coding style: See eslint.config.js
+- Language: [e.g., TypeScript, Python, Go, Rust]
+- Framework: [e.g., React, Django, Express]
+- Build tool: [e.g., Vite, webpack, cargo, go build]
+- Coding style: [Reference style guide or linter config]
 "
 ```
 
@@ -140,8 +140,8 @@ After Codex executes:
 2. **Check syntax and types**
 
    ```bash
-   npm run lint
-   npx tsc --noEmit
+   <lint-command>
+   <type-check-command>
    ```
 
    - Fix any linting errors
@@ -151,7 +151,7 @@ After Codex executes:
 3. **Run tests**
 
    ```bash
-   npm test
+   <test-command>
    ```
 
    - Do existing tests still pass?
@@ -161,7 +161,7 @@ After Codex executes:
 4. **Test manually**
 
    ```bash
-   npm run dev
+   <dev-server-command>
    ```
 
    - Does the feature work as expected?
@@ -602,9 +602,9 @@ User requests: "Add email validation to UserForm"
 
 4. Verify:
    - git diff → Review changes
-   - npm run lint → Check syntax
-   - npm test → Run tests
-   - npm run dev → Manual test
+   - <lint-command> → Check syntax
+   - <test-command> → Run tests
+   - <dev-server-command> → Manual test
 
 5. Report:
    "✓ Email validation added to UserForm.tsx

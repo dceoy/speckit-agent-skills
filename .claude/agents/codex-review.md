@@ -78,8 +78,8 @@ Perform a thorough, professional code review that helps improve code quality, se
 3. **Check existing issues**
 
    ```bash
-   npm run lint 2>&1 | head -20
-   npx tsc --noEmit 2>&1 | head -20
+   <lint-command> 2>&1 | head -20
+   <type-check-command> 2>&1 | head -20
    ```
 
    - Existing linting errors?

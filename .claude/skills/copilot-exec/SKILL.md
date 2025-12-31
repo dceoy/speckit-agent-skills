@@ -43,8 +43,7 @@ copilot
 **Requirements:**
 
 - Active GitHub Copilot subscription
-- Node.js v22+
-- npm v10+
+- Node.js v22+ (for Copilot CLI itself)
 
 ## Basic Usage
 
@@ -93,10 +92,10 @@ Follow these guidelines:
 - Add comments for complex logic
 
 Project context:
-- Language: [e.g., TypeScript + React]
-- Build tool: [e.g., Vite, webpack]
-- Package manager: [e.g., npm, pnpm, yarn]
-- Coding style: [e.g., See eslint.config.js]
+- Language: [e.g., TypeScript, Python, Go, Rust]
+- Framework: [e.g., React, Django, Express]
+- Build tool: [e.g., Vite, webpack, cargo, go build]
+- Coding style: [Reference style guide or linter config]
 
 Preview all changes before applying them.
 ```
@@ -116,9 +115,8 @@ After execution:
 ```bash
 git status              # See what changed
 git diff                # Review modifications
-npm run lint            # Check for errors
-npx tsc --noEmit        # Type check
-npm test                # Run tests
+<lint-command>          # Check for errors
+<test-command>          # Run tests
 ```
 
 ### Step 7: Report Results
@@ -194,30 +192,25 @@ After Copilot executes, ALWAYS:
    git diff
    ```
 
-2. **Check syntax and types**:
+2. **Run linter**:
 
    ```bash
-   npm run lint
-   npx tsc --noEmit
+   <lint-command>
    ```
 
 3. **Run tests**:
 
    ```bash
-   npm test
+   <test-command>
    ```
 
 4. **Manual testing**:
 
-   ```bash
-   npm run dev
-   # Test the functionality
-   ```
+   Start your development server and test the functionality manually.
 
 5. **Report status**:
    - ✅ Changes applied successfully
-   - ✅ Lint passed
-   - ✅ Types correct
+   - ✅ Linter passed
    - ✅ Tests passed
    - ✅ Manual testing confirmed
 
@@ -309,9 +302,9 @@ Before using copilot-exec:
 After using copilot-exec:
 
 - [ ] Reviewed changes with `git diff`
-- [ ] Ran linter (`npm run lint`)
-- [ ] Ran type checker (`npx tsc --noEmit`)
-- [ ] Ran tests (`npm test`)
+- [ ] Ran linter (language-specific)
+- [ ] Ran type checker (if applicable)
+- [ ] Ran tests (language-specific)
 - [ ] Tested manually
 - [ ] Ready to commit
 

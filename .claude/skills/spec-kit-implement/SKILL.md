@@ -86,12 +86,12 @@ Process each phase sequentially:
 
 ### Step 4: Verify Each Phase
 
-After each phase:
+After each phase, run your project's quality checks:
 
 ```bash
-npm run lint    # Check code quality
-npm run test    # Run tests
-npm run build   # Ensure it builds
+<lint-command>    # Check code quality
+<test-command>    # Run tests
+<build-command>   # Ensure it builds
 ```
 
 ### Step 5: Update tasks.md
@@ -228,16 +228,16 @@ After each phase:
 
 ```bash
 # Run unit tests
-npm test
+<test-command>
 
 # Run integration tests (if applicable)
-npm run test:integration
+<integration-test-command>
 
-# Check types
-npx tsc --noEmit
+# Check types (if applicable)
+<type-check-command>
 
 # Lint
-npm run lint
+<lint-command>
 ```
 
 ### User Story Testing

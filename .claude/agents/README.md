@@ -187,9 +187,7 @@ These agents can work together seamlessly:
 
 Before using these agents:
 
-1. **Codex CLI must be installed**
-   - Install: `npm install -g @openai/codex`
-   - Or: `brew install --cask codex` (macOS)
+1. **Codex CLI** (assumes already installed)
    - Verify: `codex --version`
 
 2. **Authentication configured**
@@ -231,7 +229,7 @@ language = "typescript"
 
 ### What Agents Can Do
 
-- ✅ Run Bash commands (codex CLI, git, npm)
+- ✅ Run Bash commands (codex CLI, git, project tools)
 - ✅ Read files to understand context
 - ✅ Search code with Grep
 - ✅ Find files with Glob
@@ -300,12 +298,11 @@ Use ask → exec → review cycle for complex tasks
 
 ### "Codex CLI not found"
 
-**Solution:** Install Codex CLI first
+**Solution:** Ensure Codex CLI is installed and available in your PATH
 
 ```bash
-npm install -g @openai/codex
-# or
-brew install --cask codex
+which codex  # Verify installation
+codex --version  # Check version
 ```
 
 ### "Authentication failed"
