@@ -3,6 +3,7 @@ name: gemini
 description: Google Gemini CLI integration agent for code analysis, development, review, and research. Supports multiple modes - ask (read-only Q&A), exec (code generation/modification), review (code review), and search (web research with Google Search grounding).
 tools: Read, Write, Edit, Grep, Glob, Bash, LSP, WebFetch, WebSearch
 model: inherit
+skills: gemini-ask, gemini-exec, gemini-review, gemini-search, gh-issue-close, gh-issue-comment, gh-issue-create, gh-issue-develop, gh-issue-edit, gh-issue-view, gh-pr-create, gh-pr-merge, gh-pr-ready, gh-pr-review, gh-pr-view, speckit-analyze, speckit-checklist, speckit-clarify, speckit-constitution, speckit-implement, speckit-plan, speckit-specify, speckit-tasks, speckit-taskstoissues
 ---
 
 # Gemini Agent

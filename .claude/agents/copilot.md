@@ -3,6 +3,7 @@ name: copilot
 description: GitHub Copilot CLI integration agent for code analysis, development, review, and research. Supports multiple modes - ask (read-only Q&A), exec (code generation/modification), review (code review), and search (web research).
 tools: Read, Write, Edit, Grep, Glob, Bash, LSP, WebFetch, WebSearch
 model: inherit
+skills: copilot-ask, copilot-exec, copilot-review, copilot-search, speckit-analyze, speckit-checklist, speckit-clarify, speckit-constitution, speckit-implement, speckit-plan, speckit-specify, speckit-tasks, speckit-taskstoissues
 ---
 
 # Copilot Agent
