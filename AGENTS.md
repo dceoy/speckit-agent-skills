@@ -4,16 +4,19 @@ Guidelines for editing agent definitions, skills, and prompts in this repository
 
 ## Project Structure
 
+### Skills (root)
+
+- `skills/` - Source skill directories (Spec Kit workflow skills)
+
 ### Claude Code Runtime (`.claude/`)
 
-- `.claude/agents/` - Agent definitions for autonomous task execution (codex-_, copilot-_, gemini-\*)
 - `.claude/commands/` - Command prompt files for Spec Kit workflow (speckit.\*.md)
-- `.claude/skills/` - Skill directories with skill.yaml + SKILL.md (copilot-_, codex-_, gemini-\_, speckit-\*)
+- `.claude/skills` - Symlink to `../skills` (shared skills)
 
 ### Codex CLI Runtime (`.codex/`)
 
 - `.codex/prompts/` - Prompt files for Spec Kit workflow (speckit.\*.md)
-- `.codex/skills/` - Native claude-\* skills + symlinks to .claude/skills/ for others (copilot-_, gemini-_, speckit-\*)
+- `.codex/skills` - Symlink to `../skills` (shared skills)
 
 ### Gemini CLI Runtime (`.gemini/`)
 
@@ -21,9 +24,9 @@ Guidelines for editing agent definitions, skills, and prompts in this repository
 
 ### GitHub Copilot CLI Runtime (`.github/`)
 
-- `.github/agents/` - Agent definitions for Copilot CLI (speckit.\*.agent.md)
+- `.github/agents/` - Spec Kit agent definitions for Copilot CLI (speckit.\*.agent.md)
 - `.github/prompts/` - Prompt files for Copilot CLI (speckit.\*.prompt.md)
-- `.github/skills/` - Symlinks to both .claude/skills/ and .codex/skills/
+- `.github/skills/` - Symlink to `../skills` (shared skills)
 - `.github/workflows/` - CI workflow definitions (ci.yml)
 
 ### Spec Kit Framework (`.specify/`)
@@ -80,15 +83,16 @@ Each skill directory must contain:
 
 This repository uses symlinks to share skills across runtimes:
 
-**Source Skills** (`.claude/skills/`)
+**Source Skills** (`skills/`)
 
-- Primary location for copilot-_, codex-_, gemini-\_, and speckit-\* skills
-- Contains actual skill directories with skill.yaml and SKILL.md
+- Primary location for Spec Kit skills (speckit-*)
+- Contains actual skill directories with `skill.yaml` and `SKILL.md`
 
 **Symlinked Skills**
 
-- `.codex/skills/` - Symlinks to copilot-_, gemini-_, and speckit-\_ from .claude/skills/
-- `.github/skills/` - Symlinks to all skills from both .claude and .codex
+- `.claude/skills` → `../skills`
+- `.codex/skills` → `../skills`
+- `.github/skills` → `../skills`
 
 **Benefits**
 
@@ -98,13 +102,12 @@ This repository uses symlinks to share skills across runtimes:
 
 **When Adding/Modifying Skills**
 
-1. Create/edit skills in their primary location:
-   - claude-\* → `.codex/skills/` (native)
-   - copilot-_, codex-_, gemini-\_, speckit-\* → `.claude/skills/` (native)
-2. Create symlinks as needed:
+1. Add or edit skills in `skills/`.
+2. Ensure the runtime symlinks point at `skills/`:
    ```bash
-   ln -s ../../.claude/skills/speckit-example .codex/skills/speckit-example
-   ln -s ../../.claude/skills/speckit-example .github/skills/speckit-example
+   ln -s ../skills .claude/skills
+   ln -s ../skills .codex/skills
+   ln -s ../skills .github/skills
    ```
 3. Verify symlinks work: `ls -la .codex/skills/`
 
@@ -129,177 +132,13 @@ This repository uses symlinks to share skills across runtimes:
 - Agent and prompt files are the product of this repo—treat them as source of truth.
 - Prefer small, focused edits per file for reviewability.
 
-## Codex CLI Agents
+## Runtime Assets
 
-Specialized Claude Code agents that integrate OpenAI Codex CLI capabilities for autonomous development tasks.
-
-### Available Agents
-
-**codex-ask** - Answer questions about code (read-only)
-
-- Uses Codex to analyze code and provide detailed answers
-- Includes file references and line numbers
-- Shows code examples
-- Never modifies code
-
-Use for: Understanding existing code, exploring architecture, finding implementations, learning patterns, debugging assistance
-
-**codex-exec** - Execute development tasks with code modifications
-
-- Generates new code and refactors existing code
-- Adds features and fixes bugs
-- Creates tests
-- Modifies code files
-
-Use for: Code generation, refactoring, feature implementation, bug fixes, test creation
-
-**codex-review** - Perform comprehensive code reviews (read-only)
-
-- Identifies bugs and security vulnerabilities
-- Detects performance problems
-- Suggests improvements
-- Provides actionable feedback
-- Never modifies code
-
-Use for: Pre-commit checks, pull request reviews, security audits, performance analysis, code quality assessment
-
-**codex-search** - Search the web for current information (read-only)
-
-- Searches documentation, best practices, and solutions
-- Finds API references and tutorials
-- Researches library comparisons and approaches
-- Provides sourced, verified information
-- Never modifies code
-
-Use for: Finding documentation, researching solutions, comparing libraries, learning new technologies, troubleshooting errors
-
-### Usage Patterns
-
-Simply describe your task to Claude Code, and it will launch the appropriate agent:
-
-```
-"Can you help me understand how authentication works?"
-→ Launches codex-ask agent
-
-"Add input validation to the registration form"
-→ Launches codex-exec agent
-
-"Review my changes for security issues"
-→ Launches codex-review agent
-
-"What's the best library for JWT authentication in 2026?"
-→ Launches codex-search agent
-```
-
-### Workflow Patterns
-
-**Understand → Execute → Review**
-
-1. Launch codex-ask: Understand current implementation
-2. Launch codex-exec: Make improvements
-3. Launch codex-review: Verify changes
-
-**Pre-Commit Workflow**
-
-1. Make changes to code
-2. Launch codex-review: Review uncommitted changes
-3. Launch codex-exec: Fix identified issues
-4. Launch codex-review: Final verification
-5. Commit with confidence
-
-**Feature Development**
-
-1. Launch codex-search: Research best practices and libraries
-2. Launch codex-ask: Understand existing patterns in codebase
-3. Launch codex-exec: Implement following patterns
-4. Launch codex-exec: Create tests
-5. Launch codex-review: Review implementation
-
-**Research → Understand → Execute → Review**
-
-1. Launch codex-search: Find current documentation and approaches
-2. Launch codex-ask: Understand how it fits with current code
-3. Launch codex-exec: Implement the solution
-4. Launch codex-review: Verify quality and security
-
-### Prerequisites
-
-- Codex CLI installed and available in PATH
-- ChatGPT Plus/Pro/Team/Enterprise subscription or OpenAI API key in `~/.codex/config.toml`
-- Internet connection for API access
-
-### Configuration
-
-Global config (`~/.codex/config.toml`):
-
-```toml
-[general]
-model = "gpt-4o"
-
-[execution]
-auto_approve = false
-
-[api]
-# If using API key:
-# key = "sk-..."
-```
-
-Project config (`.codex/config.toml`, optional):
-
-```toml
-[project]
-name = "your-project-name"
-language = "typescript"
-```
-
-### Agent Files
-
-```
-.claude/agents/
-└── codex.md  # Unified Codex agent (ask, exec, review, search modes)
-```
-
-## Copilot CLI Agents
-
-Specialized Claude Code agents that integrate GitHub Copilot CLI capabilities for autonomous development tasks.
-
-### Available Agents
-
-**copilot-ask** - Answer questions about code (read-only)
-
-**copilot-exec** - Execute development tasks with code modifications
-
-**copilot-review** - Perform comprehensive code reviews (read-only)
-
-**copilot-search** - Search the web for current information (read-only)
-
-### Agent Files
-
-```
-.claude/agents/
-└── copilot.md  # Unified Copilot agent (ask, exec, review, search modes)
-```
-
-## Gemini CLI Agents
-
-Specialized Claude Code agents that integrate Gemini CLI capabilities for autonomous development tasks.
-
-### Available Agents
-
-**gemini-ask** - Answer questions about code (read-only)
-
-**gemini-exec** - Execute development tasks with code modifications
-
-**gemini-review** - Perform comprehensive code reviews (read-only)
-
-**gemini-search** - Search the web for current information (read-only)
-
-### Agent Files
-
-```
-.claude/agents/
-└── gemini.md  # Unified Gemini agent (ask, exec, review, search modes)
-```
+- **Skills**: All skills live in `skills/` (speckit-\* workflow skills) and are shared via symlinks in `.claude/skills`, `.codex/skills`, and `.github/skills`.
+- **Claude Code**: Spec Kit command prompts in `.claude/commands/`; uses shared skills via the symlinked `.claude/skills`.
+- **Codex CLI**: Spec Kit prompt files in `.codex/prompts/`; uses shared skills via the symlinked `.codex/skills`.
+- **GitHub Copilot CLI**: Spec Kit agents in `.github/agents/`, prompts in `.github/prompts/`, and shared skills via `.github/skills`.
+- **Gemini CLI**: Spec Kit command prompts in `.gemini/commands/`.
 
 ## Spec Kit Workflow
 
