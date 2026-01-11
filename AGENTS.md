@@ -145,7 +145,7 @@ This repository uses symlinks to share skills across runtimes:
 
 ### Current skill inventory
 
-- All runtimes include: `/speckit.constitution`, `/speckit.specify`, `/speckit.clarify`, `/speckit.plan`, `/speckit.analyze`, `/speckit.tasks`, `/speckit.implement`, `/speckit.checklist`, `/speckit.taskstoissues`.
+- All runtimes include: `/speckit.constitution`, `/speckit.specify`, `/speckit.baseline`, `/speckit.clarify`, `/speckit.plan`, `/speckit.analyze`, `/speckit.tasks`, `/speckit.implement`, `/speckit.checklist`, `/speckit.taskstoissues`.
 - File patterns by runtime:
   - Source configs: `skills/speckit-*/SKILL.md`
   - Claude commands: `.claude/commands/speckit.<name>.md`
@@ -194,22 +194,24 @@ The canonical Spec Kit workflow follows these phases in order:
 
 **Additional Commands:**
 
-| Command                  | Purpose                               | When to Use                    |
-| ------------------------ | ------------------------------------- | ------------------------------ |
-| `/speckit.checklist`     | Generate custom validation checklists | Quality assurance at any phase |
-| `/speckit.taskstoissues` | Convert tasks to GitHub issues        | Project management integration |
+| Command                  | Purpose                               | When to Use                      |
+| ------------------------ | ------------------------------------- | -------------------------------- |
+| `/speckit.baseline`      | Generate specs from existing code     | Documenting legacy/existing code |
+| `/speckit.checklist`     | Generate custom validation checklists | Quality assurance at any phase   |
+| `/speckit.taskstoissues` | Convert tasks to GitHub issues        | Project management integration   |
 
 ### Command Dependencies
 
 Critical dependencies:
 
 - Constitution must exist before first specify
-- Specify must complete before plan
+- Specify must complete before plan (or use baseline for existing code)
 - Plan must complete before tasks
 - Tasks must complete before implement
-- Clarify can run after specify, before plan
+- Clarify can run after specify or baseline, before plan
 - Analyze can run after tasks, before implement
 - Checklist can run at any phase for quality validation
+- Baseline can be used instead of specify when documenting existing code
 
 ### File Structure After Full Workflow
 
@@ -260,11 +262,23 @@ Building a new project from scratch:
 Adding features to existing codebase:
 
 1. `/speckit.constitution` - Define principles if not already done
-2. `/speckit.specify` - Feature spec with integration notes
-3. `/speckit.plan` - Integration strategy considering existing architecture
-4. `/speckit.analyze` - Validate compatibility
-5. `/speckit.tasks` - Incremental changes
-6. `/speckit.implement` - Update existing + add new files
+2. `/speckit.baseline src/existing-feature/` - Generate specs from existing code (optional, for documentation)
+3. `/speckit.specify` - Feature spec with integration notes
+4. `/speckit.plan` - Integration strategy considering existing architecture
+5. `/speckit.analyze` - Validate compatibility
+6. `/speckit.tasks` - Incremental changes
+7. `/speckit.implement` - Update existing + add new files
+
+#### Legacy Code Documentation
+
+Documenting existing code before refactoring:
+
+1. `/speckit.constitution` - Define principles if not already done
+2. `/speckit.baseline src/legacy-module/` - Generate specs from code
+3. `/speckit.clarify` - Review and validate generated requirements
+4. `/speckit.plan` - Plan modernization or refactoring
+5. `/speckit.tasks` - Break down changes
+6. `/speckit.implement` - Execute refactoring
 
 #### Creative Exploration (Parallel Approaches)
 
