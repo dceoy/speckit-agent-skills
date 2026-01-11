@@ -92,12 +92,14 @@ The user's input after the skill invocation specifies the code to analyze. The w
 ## Example Transformations
 
 **Code Pattern → Spec Requirement**:
+
 - `if (user.role === 'admin')` → "System MUST restrict action to administrator users"
 - `password.length >= 8` → "Passwords MUST be at least 8 characters"
 - `cache.set(key, value, 3600)` → "System MUST cache results for improved performance"
 - `try { ... } catch (e) { notify(e) }` → "System MUST notify users when errors occur"
 
 **Code Pattern → User Story**:
+
 - Login endpoint with OAuth → "As a user, I can sign in using my social account"
 - Shopping cart logic → "As a customer, I can add items to my cart for later purchase"
 - Report generation → "As an analyst, I can generate reports on system activity"

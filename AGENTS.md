@@ -194,11 +194,11 @@ The canonical Spec Kit workflow follows these phases in order:
 
 **Additional Commands:**
 
-| Command                  | Purpose                               | When to Use                         |
-| ------------------------ | ------------------------------------- | ----------------------------------- |
-| `/speckit.baseline`      | Generate specs from existing code     | Documenting legacy/existing code    |
-| `/speckit.checklist`     | Generate custom validation checklists | Quality assurance at any phase      |
-| `/speckit.taskstoissues` | Convert tasks to GitHub issues        | Project management integration      |
+| Command                  | Purpose                               | When to Use                      |
+| ------------------------ | ------------------------------------- | -------------------------------- |
+| `/speckit.baseline`      | Generate specs from existing code     | Documenting legacy/existing code |
+| `/speckit.checklist`     | Generate custom validation checklists | Quality assurance at any phase   |
+| `/speckit.taskstoissues` | Convert tasks to GitHub issues        | Project management integration   |
 
 ### Command Dependencies
 
