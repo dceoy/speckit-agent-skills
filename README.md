@@ -21,7 +21,7 @@ This repository implements the **Spec-Driven Development** methodology via Spec 
 
 1. **Constitution** → Define project principles
 2. **Specify** → Capture feature requirements (what/why)
-   - Or **Fromcode** → Generate specs from existing code
+   - Or **Baseline** → Generate specs from existing code
 3. **Clarify** (optional) → Resolve ambiguities
 4. **Plan** → Create technical strategy (how)
 5. **Analyze** (optional) → Validate consistency
@@ -38,7 +38,7 @@ flowchart TD
   C0["/speckit.constitution"] --> C1["/speckit.specify"] --> C2["/speckit.plan"] --> C3["/speckit.tasks"] --> C4["/speckit.implement"]
 
   %% Alternative entry for existing code
-  C0 --> FC["/speckit.fromcode"]
+  C0 --> FC["/speckit.baseline"]
   FC --> C2
 
   %% Optional (dashed = insert/assist)
@@ -140,7 +140,7 @@ Install and authenticate the required CLI tools before running skills:
 /speckit.specify Add user authentication with email login
 
 # 2b. Or generate specs from existing code
-/speckit.fromcode src/auth/
+/speckit.baseline src/auth/
 
 # 3. Plan how to build it
 /speckit.plan I'm using Node.js with Express and PostgreSQL

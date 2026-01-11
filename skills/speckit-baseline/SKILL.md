@@ -1,5 +1,5 @@
 ---
-name: speckit-fromcode
+name: speckit-baseline
 description: Generate feature specifications by analyzing existing source code.
 allowed-tools: Bash, Read, Write, Grep, Glob
 handoffs:
@@ -12,7 +12,7 @@ handoffs:
     prompt: Create a plan for the spec. I am building with...
 ---
 
-# Spec-Kit From Code
+# Spec-Kit Baseline
 
 Generate structured feature specifications by analyzing existing source code. Reverse-engineers requirements, user stories, and success criteria from implementation.
 
