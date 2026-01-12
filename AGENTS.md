@@ -182,23 +182,23 @@ The canonical Spec Kit workflow follows these phases in order:
 
 ### Phase-by-Phase Summary
 
-| Phase | Agent skill              | Purpose                                  | Output Files                                    | Required        |
-| ----- | ------------------------ | ---------------------------------------- | ----------------------------------------------- | --------------- |
-| 1     | `speckit-constitution`   | Define project principles and governance | `.specify/memory/constitution.md`               | First time only |
-| 2     | `speckit-specify`        | Capture feature requirements             | `specs/N-name/spec.md`, branch `N-name`         | Yes             |
-| 3     | `speckit-clarify`        | Resolve specification ambiguities        | Updated `spec.md`                               | Optional        |
-| 4     | `speckit-plan`           | Create technical implementation strategy | `plan.md`, `research.md`, `data-model.md`, etc. | Yes             |
-| 5     | `speckit-analyze`        | Validate cross-artifact consistency      | Analysis report                                 | Optional        |
-| 6     | `speckit-tasks`          | Break work into actionable units         | `specs/N-name/tasks.md`                         | Yes             |
-| 7     | `speckit-implement`      | Execute all tasks to build feature       | Implementation code/files                       | Yes             |
+| Phase | Agent skill            | Purpose                                  | Output Files                                    | Required        |
+| ----- | ---------------------- | ---------------------------------------- | ----------------------------------------------- | --------------- |
+| 1     | `speckit-constitution` | Define project principles and governance | `.specify/memory/constitution.md`               | First time only |
+| 2     | `speckit-specify`      | Capture feature requirements             | `specs/N-name/spec.md`, branch `N-name`         | Yes             |
+| 3     | `speckit-clarify`      | Resolve specification ambiguities        | Updated `spec.md`                               | Optional        |
+| 4     | `speckit-plan`         | Create technical implementation strategy | `plan.md`, `research.md`, `data-model.md`, etc. | Yes             |
+| 5     | `speckit-analyze`      | Validate cross-artifact consistency      | Analysis report                                 | Optional        |
+| 6     | `speckit-tasks`        | Break work into actionable units         | `specs/N-name/tasks.md`                         | Yes             |
+| 7     | `speckit-implement`    | Execute all tasks to build feature       | Implementation code/files                       | Yes             |
 
 **Additional Agent skills:**
 
-| Agent skill               | Purpose                               | When to Use                      |
-| ------------------------- | ------------------------------------- | -------------------------------- |
-| `speckit-baseline`        | Generate specs from existing code     | Documenting legacy/existing code |
-| `speckit-checklist`       | Generate custom validation checklists | Quality assurance at any phase   |
-| `speckit-taskstoissues`   | Convert tasks to GitHub issues        | Project management integration   |
+| Agent skill             | Purpose                               | When to Use                      |
+| ----------------------- | ------------------------------------- | -------------------------------- |
+| `speckit-baseline`      | Generate specs from existing code     | Documenting legacy/existing code |
+| `speckit-checklist`     | Generate custom validation checklists | Quality assurance at any phase   |
+| `speckit-taskstoissues` | Convert tasks to GitHub issues        | Project management integration   |
 
 ### Command Dependencies
 
