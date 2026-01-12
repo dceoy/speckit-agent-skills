@@ -35,21 +35,21 @@ See **[AGENTS.md](./AGENTS.md#spec-kit-workflow)** for the complete workflow gui
 ```mermaid
 flowchart TD
   %% Core (recommended order)
-  C0["/speckit.constitution"] --> C1["/speckit.specify"] --> C2["/speckit.plan"] --> C3["/speckit.tasks"] --> C4["/speckit.implement"]
+  C0["speckit-constitution"] --> C1["speckit-specify"] --> C2["speckit-plan"] --> C3["speckit-tasks"] --> C4["speckit-implement"]
 
   %% Alternative entry for existing code
-  C0 --> FC["/speckit.baseline"]
+  C0 --> FC["speckit-baseline"]
   FC --> C2
 
   %% Optional (dashed = insert/assist)
-  C1 -.-> O1["/speckit.clarify"]
+  C1 -.-> O1["speckit-clarify"]
   FC -.-> O1
   O1 -.-> C2
 
-  C3 -.-> O2["/speckit.analyze"]
+  C3 -.-> O2["speckit-analyze"]
   O2 -.-> C4
 
-  C1 -.-> O3["/speckit.checklist"]
+  C1 -.-> O3["speckit-checklist"]
   C2 -.-> O3
   C3 -.-> O3
 ```
@@ -113,14 +113,8 @@ flowchart TD
 Install and authenticate the required CLI tools before running skills:
 
 - **Claude Code** - For `.claude/commands/` and shared skills via `.claude/skills`
-  - Install: https://claude.com/claude-code
-  - Auth: Follow CLI onboarding flow
 - **GitHub Copilot CLI** - For `.github/agents/` and shared skills via `.github/skills`
-  - Install: https://github.com/features/copilot/cli
-  - Auth: `gh auth login` (requires GitHub Copilot subscription)
 - **OpenAI Codex CLI** - For `.codex/prompts/` and shared skills via `.codex/skills`
-  - Install: https://developers.openai.com/codex/cli/
-  - Auth: ChatGPT subscription or API key in `~/.codex/config.toml`
 - **Gemini CLI** - For `.gemini/commands/`
 - **Spec Kit** - Implemented via skills in this repository (no separate installation)
 
@@ -128,57 +122,6 @@ Install and authenticate the required CLI tools before running skills:
 
 - Skills do not always auto-run; use your agent's skill invocation flow or ask for the skill explicitly.
 - If a skill fails, open its `SKILL.md` and verify prerequisites and command syntax.
-- For Spec Kit workflows, see [AGENTS.md](./AGENTS.md#spec-kit-workflow) for the canonical command sequence and usage guide.
-
-### Quick Spec Kit Example
-
-```bash
-# 1. First time: establish project principles
-/speckit.constitution
-
-# 2. For each feature: specify what to build
-/speckit.specify Add user authentication with email login
-
-# 2b. Or generate specs from existing code
-/speckit.baseline src/auth/
-
-# 3. Plan how to build it
-/speckit.plan I'm using Node.js with Express and PostgreSQL
-
-# 4. Break into tasks
-/speckit.tasks
-
-# 5. Implement
-/speckit.implement
-```
-
-## Troubleshooting
-
-**Skill not found**
-
-- Confirm the skill directory exists in the expected runtime location
-- Check that skill name matches exactly (case-sensitive)
-- Verify `SKILL.md` exists in the skill directory and includes YAML front matter
-
-**CLI not in PATH**
-
-- Ensure the tool is installed and accessible: `which <tool-name>`
-- Add the tool's bin directory to your shell PATH
-- Restart your terminal after installation
-
-**Authentication errors**
-
-- Re-run the tool's auth command:
-  - Claude Code: Follow onboarding flow
-  - Copilot CLI: `gh auth login`
-  - Codex CLI: `codex` (follow auth flow) or configure `~/.codex/config.toml`
-- Verify active subscription (Copilot, ChatGPT) or API key (Codex)
-
-**Symlink issues**
-
-- Skills are shared via symlinks (`.claude/skills/`, `.codex/skills/`, `.github/skills/`)
-- If broken, verify `skills/` exists and the symlinks point to it
-- On Windows, ensure symlink support is enabled
 
 ## Contributing
 
