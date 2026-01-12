@@ -145,7 +145,7 @@ This repository uses symlinks to share skills across runtimes:
 
 ### Current skill inventory
 
-- All runtimes include: `/speckit.constitution`, `/speckit.specify`, `/speckit.baseline`, `/speckit.clarify`, `/speckit.plan`, `/speckit.analyze`, `/speckit.tasks`, `/speckit.implement`, `/speckit.checklist`, `/speckit.taskstoissues`.
+- All runtimes include: `speckit-constitution`, `speckit-specify`, `speckit-baseline`, `speckit-clarify`, `speckit-plan`, `speckit-analyze`, `speckit-tasks`, `speckit-implement`, `speckit-checklist`, `speckit-taskstoissues`.
 - File patterns by runtime:
   - Source configs: `skills/speckit-*/SKILL.md`
   - Claude commands: `.claude/commands/speckit.<name>.md`
@@ -182,23 +182,23 @@ The canonical Spec Kit workflow follows these phases in order:
 
 ### Phase-by-Phase Summary
 
-| Phase | Command                 | Purpose                                  | Output Files                                    | Required        |
-| ----- | ----------------------- | ---------------------------------------- | ----------------------------------------------- | --------------- |
-| 1     | `/speckit.constitution` | Define project principles and governance | `.specify/memory/constitution.md`               | First time only |
-| 2     | `/speckit.specify`      | Capture feature requirements             | `specs/N-name/spec.md`, branch `N-name`         | Yes             |
-| 3     | `/speckit.clarify`      | Resolve specification ambiguities        | Updated `spec.md`                               | Optional        |
-| 4     | `/speckit.plan`         | Create technical implementation strategy | `plan.md`, `research.md`, `data-model.md`, etc. | Yes             |
-| 5     | `/speckit.analyze`      | Validate cross-artifact consistency      | Analysis report                                 | Optional        |
-| 6     | `/speckit.tasks`        | Break work into actionable units         | `specs/N-name/tasks.md`                         | Yes             |
-| 7     | `/speckit.implement`    | Execute all tasks to build feature       | Implementation code/files                       | Yes             |
+| Phase | Agent skill            | Purpose                                  | Output Files                                    | Required        |
+| ----- | ---------------------- | ---------------------------------------- | ----------------------------------------------- | --------------- |
+| 1     | `speckit-constitution` | Define project principles and governance | `.specify/memory/constitution.md`               | First time only |
+| 2     | `speckit-specify`      | Capture feature requirements             | `specs/N-name/spec.md`, branch `N-name`         | Yes             |
+| 3     | `speckit-clarify`      | Resolve specification ambiguities        | Updated `spec.md`                               | Optional        |
+| 4     | `speckit-plan`         | Create technical implementation strategy | `plan.md`, `research.md`, `data-model.md`, etc. | Yes             |
+| 5     | `speckit-analyze`      | Validate cross-artifact consistency      | Analysis report                                 | Optional        |
+| 6     | `speckit-tasks`        | Break work into actionable units         | `specs/N-name/tasks.md`                         | Yes             |
+| 7     | `speckit-implement`    | Execute all tasks to build feature       | Implementation code/files                       | Yes             |
 
-**Additional Commands:**
+**Additional Agent skills:**
 
-| Command                  | Purpose                               | When to Use                      |
-| ------------------------ | ------------------------------------- | -------------------------------- |
-| `/speckit.baseline`      | Generate specs from existing code     | Documenting legacy/existing code |
-| `/speckit.checklist`     | Generate custom validation checklists | Quality assurance at any phase   |
-| `/speckit.taskstoissues` | Convert tasks to GitHub issues        | Project management integration   |
+| Agent skill             | Purpose                               | When to Use                      |
+| ----------------------- | ------------------------------------- | -------------------------------- |
+| `speckit-baseline`      | Generate specs from existing code     | Documenting legacy/existing code |
+| `speckit-checklist`     | Generate custom validation checklists | Quality assurance at any phase   |
+| `speckit-taskstoissues` | Convert tasks to GitHub issues        | Project management integration   |
 
 ### Command Dependencies
 
@@ -249,46 +249,46 @@ src/                              # Implementation (Phase 7)
 
 Building a new project from scratch:
 
-1. Run `/speckit.constitution` (project setup, once)
+1. Run the `speckit-constitution` agent skill (project setup, once)
 2. For each feature:
-   - `/speckit.specify` - Create spec
-   - `/speckit.clarify` - Optional, resolve ambiguities
-   - `/speckit.plan` - Design implementation
-   - `/speckit.tasks` - Break down work
-   - `/speckit.implement` - Build feature
+   - `speckit-specify` - Create spec
+   - `speckit-clarify` - Optional, resolve ambiguities
+   - `speckit-plan` - Design implementation
+   - `speckit-tasks` - Break down work
+   - `speckit-implement` - Build feature
 
 #### Brownfield Enhancement (Adding to Existing Code)
 
 Adding features to existing codebase:
 
-1. `/speckit.constitution` - Define principles if not already done
-2. `/speckit.baseline src/existing-feature/` - Generate specs from existing code (optional, for documentation)
-3. `/speckit.specify` - Feature spec with integration notes
-4. `/speckit.plan` - Integration strategy considering existing architecture
-5. `/speckit.analyze` - Validate compatibility
-6. `/speckit.tasks` - Incremental changes
-7. `/speckit.implement` - Update existing + add new files
+1. `speckit-constitution` - Define principles if not already done
+2. `speckit-baseline src/existing-feature/` - Generate specs from existing code (optional, for documentation)
+3. `speckit-specify` - Feature spec with integration notes
+4. `speckit-plan` - Integration strategy considering existing architecture
+5. `speckit-analyze` - Validate compatibility
+6. `speckit-tasks` - Incremental changes
+7. `speckit-implement` - Update existing + add new files
 
 #### Legacy Code Documentation
 
 Documenting existing code before refactoring:
 
-1. `/speckit.constitution` - Define principles if not already done
-2. `/speckit.baseline src/legacy-module/` - Generate specs from code
-3. `/speckit.clarify` - Review and validate generated requirements
-4. `/speckit.plan` - Plan modernization or refactoring
-5. `/speckit.tasks` - Break down changes
-6. `/speckit.implement` - Execute refactoring
+1. `speckit-constitution` - Define principles if not already done
+2. `speckit-baseline src/legacy-module/` - Generate specs from code
+3. `speckit-clarify` - Review and validate generated requirements
+4. `speckit-plan` - Plan modernization or refactoring
+5. `speckit-tasks` - Break down changes
+6. `speckit-implement` - Execute refactoring
 
 #### Creative Exploration (Parallel Approaches)
 
 Testing multiple technical approaches:
 
-1. `/speckit.specify` - Single feature spec
-2. `/speckit.plan` - Multiple times with different tech stacks
+1. `speckit-specify` - Single feature spec
+2. `speckit-plan` - Multiple times with different tech stacks
 3. Compare research and contracts from each approach
 4. Choose best approach
-5. `/speckit.tasks` and `/speckit.implement` - Build selected approach
+5. `speckit-tasks` and `speckit-implement` - Build selected approach
 
 ### Best Practices
 
@@ -297,7 +297,7 @@ Testing multiple technical approaches:
 - Follow the sequence - Each phase builds on the previous
 - Constitution first - Establish principles before first feature
 - Clarify early - Resolve ambiguities before planning
-- Validate often - Use analyze and checklist commands
+- Validate often - Use analyze and checklist skills
 - Document assumptions - Make informed guesses, note them in spec
 - Prioritize stories - Use P1/P2/P3 for user stories
 - Keep specs technology-agnostic - No implementation details in spec.md
@@ -314,7 +314,7 @@ Testing multiple technical approaches:
 ### Troubleshooting
 
 **"No constitution found"**
-Solution: Run `/speckit.constitution` first (project initialization).
+Solution: Run the `speckit-constitution` agent skill first (project initialization).
 
 **"Spec has too many [NEEDS CLARIFICATION] markers"**
 Solution: Make informed guesses for non-critical items, document assumptions. Only flag critical decisions.
@@ -326,15 +326,14 @@ Solution: Revise plan to align with constitution or justify exception with expli
 Solution: Review task dependencies, break circular chains by introducing intermediate tasks.
 
 **"Implementation doesn't match spec"**
-Solution: Validate spec and plan first with `/speckit.analyze` before implementing.
+Solution: Validate spec and plan first with `speckit-analyze` before implementing.
 
 ### Integration with AI Coding Assistants
 
 Spec Kit works with multiple AI agents:
 
-- **Claude Code** - Uses `.claude/skills/speckit-*` and `.claude/commands/speckit.*`
-- **Codex CLI** - Uses `.codex/skills/speckit-*` and `.codex/prompts/speckit.*`
-- **GitHub Copilot** - Via custom slash commands
-- **Others** - Cursor, Windsurf, Amazon Q, Gemini, etc.
+- **Claude Code** - Uses `.claude/skills/speckit-*`
+- **Codex CLI** - Uses `.codex/skills/speckit-*`
+- **GitHub Copilot** - Uses `.github/skills/speckit-*`
 
 Each agent runtime may have slight variations in invocation, but the workflow sequence remains consistent.
