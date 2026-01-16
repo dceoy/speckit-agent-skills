@@ -19,7 +19,7 @@
 │              Python    3.12.3                                                │
 │            Platform    Linux                                                 │
 │        Architecture    x86_64                                                │
-│          OS Version    #1 SMP Mon Jul 21 20:38:16 UTC 2025                   │
+│          OS Version    #1 SMP Tue Jan 14 01:22:00 UTC 2025                   │
 │                                                                              │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 
