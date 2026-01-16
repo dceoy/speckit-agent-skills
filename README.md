@@ -54,23 +54,6 @@ flowchart TD
   C3 -.-> O3
 ```
 
-## Quick start
-
-1. Clone the repo:
-
-   ```bash
-   git clone git@github.com:dceoy/speckit-agent-skills.git
-   ```
-
-2. Pick a runtime and explore the skills:
-   - **Shared skills:** `skills/` (source directories with `SKILL.md` + YAML front matter)
-   - **Claude Code:** `.claude/commands/` (command prompts), `.claude/skills` (symlink to `../skills`)
-   - **Codex CLI:** `.codex/prompts/` (prompt files), `.codex/skills` (symlink to `../skills`)
-   - **Gemini CLI:** `.gemini/commands/` (prompt files)
-   - **GitHub Copilot CLI:** `.github/agents/` (Spec Kit agents), `.github/prompts/`, `.github/skills` (symlink to `../skills`)
-
-3. Open a skill directory and read the `SKILL.md` to learn how to invoke it.
-
 ## Skills by runtime
 
 ### Shared skills (`skills/`)
