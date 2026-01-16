@@ -48,7 +48,7 @@ jobs:
       issues: write
       id-token: write
       actions: read
-    uses: dceoy/gh-actions-for-devops/.github/workflows/claude-code-review.yml@main
+    uses: dceoy/gh-actions-for-devops/.github/workflows/claude-code-review.yml@main   # zizmor: ignore[unpinned-uses]
     secrets:
       CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -64,7 +64,7 @@ jobs:
       issues: write
       id-token: write
       actions: read
-    uses: dceoy/gh-actions-for-devops/.github/workflows/claude-code-bot.yml@main
+    uses: dceoy/gh-actions-for-devops/.github/workflows/claude-code-bot.yml@main  # zizmor: ignore[unpinned-uses]
     secrets:
       CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -75,7 +75,7 @@ jobs:
       contents: write
       pull-requests: write
       actions: read
-    uses: dceoy/gh-actions-for-devops/.github/workflows/dependabot-auto-merge.yml@main
+    uses: dceoy/gh-actions-for-devops/.github/workflows/dependabot-auto-merge.yml@main  # zizmor: ignore[unpinned-uses]
     with:
       unconditional: true
     secrets:
@@ -88,7 +88,7 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
-    uses: dceoy/gh-actions-for-devops/.github/workflows/speckit-init.yml@main
+    uses: dceoy/gh-actions-for-devops/.github/workflows/speckit-init.yml@main   # zizmor: ignore[unpinned-uses]
     with:
       ai-assistants: claude,codex,gemini,copilot
       version-md-file-to-write: VERSION.md
