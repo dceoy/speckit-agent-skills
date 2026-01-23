@@ -33,7 +33,7 @@ Guidelines for editing agent definitions, skills, and prompts in this repository
 
 - `.specify/templates/` - Templates for spec, plan, tasks, checklist, agent files
 - `.specify/memory/` - Constitution and other persistent memory
-- `.specify/scripts/` - Helper scripts
+- `.specify/scripts/` - Helper scripts (bash in `.specify/scripts/bash`)
 
 ### Root Documentation
 
@@ -98,6 +98,12 @@ This repository uses symlinks to share skills across runtimes:
 - Single source of truth for shared skills
 - Easy maintenance (edit once, works everywhere)
 - Reduced duplication
+
+## Script Conventions
+
+- `.specify/scripts/bash/*.sh` are the canonical helpers for skill workflows.
+- Run scripts from repo root and parse their `--json` output; returned paths are absolute.
+- Scripts are bash-only; use long-form flags (`--json`, `--paths-only`, etc.) and run via bash/WSL on Windows.
 
 **When Adding/Modifying Skills**
 

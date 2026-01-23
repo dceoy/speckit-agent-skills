@@ -49,7 +49,10 @@ flowchart TD
   C3 -.-> O2["speckit-analyze"]
   O2 -.-> C4
 
+  C3 -.-> O4["speckit-taskstoissues"]
+
   C1 -.-> O3["speckit-checklist"]
+  FC -.-> O3
   C2 -.-> O3
   C3 -.-> O3
 ```
@@ -88,6 +91,7 @@ flowchart TD
 └── .specify/            # Spec Kit templates and memory files
     ├── memory/
     ├── scripts/
+    │   └── bash/        # Helper scripts used by skills
     └── templates/       # spec, plan, tasks, checklist, agent-file templates
 ```
 
@@ -105,6 +109,7 @@ Install and authenticate the required CLI tools before running skills:
 
 - Skills do not always auto-run; use your agent's skill invocation flow or ask for the skill explicitly.
 - If a skill fails, open its `SKILL.md` and verify prerequisites and command syntax.
+- Spec Kit helper scripts live in `.specify/scripts/bash` (bash-only). Run them from repo root and prefer their `--json` output (absolute paths).
 
 ## Contributing
 
