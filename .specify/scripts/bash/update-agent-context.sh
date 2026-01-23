@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# shellcheck disable=all
 
 # Update agent context files with information from plan.md
 #

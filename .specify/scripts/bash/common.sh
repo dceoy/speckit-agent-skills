@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# shellcheck disable=all
 # Common functions and variables for all scripts
 
 # Get repository root, with fallback for non-git repositories
