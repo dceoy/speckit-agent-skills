@@ -15,6 +15,26 @@ This repository provides reusable skills and templates for multiple agent runtim
 
 Each skill directory has a `SKILL.md` with YAML front matter that includes the skill configuration and documentation.
 
+## Quickstart
+
+1.  Clone this repository and change into it.
+
+    ```bash
+    git clone https://github.com/github/speckit-agent-skills.git
+    ```
+
+2.  Install [Spec Kit](https://github.com/github/spec-kit).
+
+3.  Create a new project or initialize an existing project using `specify init`.
+
+4.  Copy the `skills/` directory into the project's agent skills directory (e.g., `.claude/skills/`).
+
+    ```bash
+    cp -a speckit-agent-skills/skills/* /path/to/a/project/agent/directory/skills/
+    ```
+
+5.  Use the skills on your preferred agent (e.g., Claude Code).
+
 ### Spec Kit Workflow
 
 This repository implements the **Spec-Driven Development** methodology via Spec Kit skills. The canonical workflow:
@@ -103,7 +123,7 @@ Install and authenticate the required CLI tools before running skills:
 - **GitHub Copilot CLI** - For `.github/agents/` and shared skills via `.github/skills`
 - **OpenAI Codex CLI** - For `.codex/prompts/` and shared skills via `.codex/skills`
 - **Gemini CLI** - For `.gemini/commands/`
-- **Spec Kit** - Implemented via skills in this repository (no separate installation)
+- **Spec Kit** - Install from [github.com/github/spec-kit](https://github.com/github/spec-kit)
 
 ## Usage notes
 
