@@ -1,95 +1,96 @@
 ---
 name: speckit-baseline
 description: Generate feature specifications by analyzing existing source code.
-allowed-tools: Bash, Read, Write, Grep, Glob
-handoffs:
-  - label: Clarify Generated Spec
-    agent: speckit.clarify
-    prompt: Clarify specification requirements
-    send: true
-  - label: Create Implementation Plan
-    agent: speckit.plan
-    prompt: Create a plan for the spec. I am building with...
 ---
 
-# Spec-Kit Baseline
-
-Generate structured feature specifications by analyzing existing source code. Reverse-engineers requirements, user stories, and success criteria from implementation.
+# Spec Kit Baseline Skill
 
 ## When to Use
 
-- Documenting existing features that lack specifications
-- Understanding legacy code before refactoring
-- Creating specs for inherited or acquired codebases
-- Generating documentation from implemented functionality
-- Preparing brownfield code for the Spec Kit workflow
+- You need a spec for existing or legacy code.
+- You want to document a feature before refactoring.
+- You inherited a codebase without written requirements.
 
-## Execution Workflow
+## Inputs
 
-The user's input after the skill invocation specifies the code to analyze. The workflow:
+- A target path, file list, or glob pattern describing the code to analyze.
+- Repo context with `.specify/` scripts and templates.
 
-1. **Parse target input**: Identify files, directories, or patterns to analyze
-   - Accept file paths, glob patterns, or directory paths
-   - If empty: ERROR "No code target provided - specify files, directories, or patterns"
+If the target is missing or ambiguous, ask a focused question before continuing.
+
+## Goal
+
+Generate a technology-agnostic spec for existing code, then create the feature branch/spec file using the standard Spec Kit templates.
+
+## Workflow
+
+1. **Parse target input**: Identify files, directories, or patterns to analyze.
+   - Accept file paths, glob patterns, or directory paths.
+   - If empty: stop and ask for a concrete target.
 
 2. **Discover and read source files**:
-   - Expand glob patterns to file list
-   - Read file contents for analysis
-   - Identify primary language(s) and frameworks
-   - Map file relationships and dependencies
+   - Expand globs to a file list.
+   - Read file contents for analysis.
+   - Identify primary language(s) and frameworks.
+   - Map key file relationships and dependencies.
 
 3. **Analyze code structure**:
-   - Identify entry points and public interfaces
-   - Extract function/method signatures and behaviors
-   - Find data models and entities
-   - Detect API endpoints and routes
-   - Identify user-facing functionality
+   - Identify entry points and public interfaces.
+   - Extract function/method signatures and behaviors.
+   - Find data models and entities.
+   - Detect API endpoints and routes.
+   - Identify user-facing functionality.
 
-4. **Generate short name** (2-4 words) from analyzed code:
-   - Use action-noun format (e.g., "user-auth", "payment-processing")
-   - Base on primary functionality discovered
-   - Preserve technical terms where meaningful
+4. **Generate a short name** (2-4 words) from the analyzed code:
+   - Use action-noun format (e.g., "user-auth", "payment-processing").
+   - Base on primary functionality discovered.
+   - Preserve technical terms where meaningful.
 
-5. **Check for existing branches/specs** and run setup script:
-   - Find highest feature number for this short-name
-   - Run `.specify/scripts/bash/create-new-feature.sh --json` with calculated number and short-name
-   - Get BRANCH_NAME and SPEC_FILE paths from JSON output
+5. **Create the feature branch and spec file**:
+   - Find the highest existing feature number for this short name (branches/specs).
+   - Run `.specify/scripts/bash/create-new-feature.sh --json` with the calculated number and short name.
+   - Read BRANCH_NAME, FEATURE_DIR, and SPEC_FILE paths from the script JSON output.
+   - For single quotes in args like "I'm Groot", use escape syntax: e.g 'I'\''m Groot' (or double-quote if possible: "I'm Groot").
 
-6. **Load spec template** from `.specify/templates/spec-template.md`
+6. **Load the spec template** from `.specify/templates/spec-template.md`.
 
-7. **Generate specification content**:
-   - **User Stories**: Infer from user-facing code paths and interactions
-   - **Acceptance Scenarios**: Derive from test cases, validation logic, error handling
-   - **Functional Requirements**: Extract from business logic and constraints
-   - **Key Entities**: Identify from data models and schemas
-   - **Success Criteria**: Infer from existing metrics, logging, or performance code
-   - **Assumptions**: Document inferences made during analysis
+7. **Draft the specification** using the template structure:
+   - **User Stories**: Infer from user-facing code paths and interactions.
+   - **Acceptance Scenarios**: Derive from validation logic, error handling, and tests.
+   - **Functional Requirements**: Extract from business rules and constraints.
+   - **Key Entities**: Identify from data models and schemas.
+   - **Success Criteria**: Infer from metrics, logging, or performance-related code.
+   - **Assumptions**: Document inferences made during analysis.
 
 8. **Abstract implementation details**:
-   - Convert technical patterns to user-focused requirements
-   - Remove framework-specific terminology
-   - Focus on WHAT the code does, not HOW it does it
-   - Express behaviors in technology-agnostic terms
+   - Convert technical patterns to user-focused requirements.
+   - Remove framework-specific terminology.
+   - Focus on WHAT the code does, not HOW it does it.
 
-9. **Create spec quality checklist** at `FEATURE_DIR/checklists/requirements.md`
+9. **Create spec quality checklist** at `FEATURE_DIR/checklists/requirements.md`.
 
 10. **Report completion** with:
-    - Branch name and spec file path
-    - Summary of analyzed files
-    - Key features discovered
-    - Areas needing clarification or review
+    - Branch name and spec file path.
+    - Summary of analyzed files.
+    - Key features discovered.
+    - Areas needing clarification or review.
 
-## Key Points
+## Outputs
 
-- Focus on extracting WHAT and WHY from HOW
-- Abstract away implementation details in the generated spec
-- Document assumptions made during code analysis
-- Flag areas where code behavior is unclear
-- Preserve discovered business rules and constraints
-- Use [NEEDS CLARIFICATION] for ambiguous code sections (max 3)
-- Generated specs should be validated by someone who knows the feature
+- `specs/<feature>/spec.md`
+- `specs/<feature>/checklists/requirements.md`
 
-## Example Transformations
+## Key rules
+
+- Focus on extracting WHAT and WHY from HOW.
+- Abstract away implementation details in the generated spec.
+- Document assumptions made during code analysis.
+- Flag areas where code behavior is unclear.
+- Preserve discovered business rules and constraints.
+- Use `[NEEDS CLARIFICATION]` for ambiguous code sections (max 3).
+- Generated specs should be validated by someone who knows the feature.
+
+## Examples
 
 **Code Pattern → Spec Requirement**:
 
@@ -108,12 +109,6 @@ The user's input after the skill invocation specifies the code to analyze. The w
 
 After generating spec.md:
 
-- **Clarify** with domain experts using `speckit-clarify`
-- **Plan** modernization/refactoring with `speckit-plan`
-- **Compare** generated spec with actual requirements to identify gaps
-
-## See Also
-
-- `speckit-specify` - Create specs from descriptions (forward direction)
-- `speckit-clarify` - Resolve specification ambiguities
-- `speckit-plan` - Create technical implementation strategy
+- **Clarify** with domain experts using speckit-clarify.
+- **Plan** modernization/refactoring with speckit-plan.
+- **Compare** the generated spec with actual requirements to identify gaps.
