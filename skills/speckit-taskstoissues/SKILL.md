@@ -36,3 +36,7 @@ git config --get remote.origin.url
 
 > [!CAUTION]
 > UNDER NO CIRCUMSTANCES EVER CREATE ISSUES IN REPOSITORIES THAT DO NOT MATCH THE REMOTE URL
+
+## Outputs
+
+- GitHub issues created from `tasks.md` (one per task), in the repository matching the Git remote

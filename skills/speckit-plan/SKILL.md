@@ -86,3 +86,19 @@ If the spec is missing, ask the user to run speckit-specify first.
 
 - Use absolute paths
 - ERROR on gate failures or unresolved clarifications
+
+## Outputs
+
+- `specs/<feature>/plan.md` (filled implementation plan)
+- `specs/<feature>/research.md`
+- `specs/<feature>/data-model.md`
+- `specs/<feature>/contracts/` (API schemas)
+- `specs/<feature>/quickstart.md`
+- Updated agent context file (runtime-specific)
+
+## Next Steps
+
+After planning:
+
+- **Generate tasks** with speckit-tasks.
+- **Create a checklist** with speckit-checklist when a quality gate is needed.

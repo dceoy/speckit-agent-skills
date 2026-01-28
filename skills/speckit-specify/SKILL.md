@@ -190,6 +190,19 @@ Given that feature description, do this:
 
 **NOTE:** The script creates and checks out the new branch and initializes the spec file before writing.
 
+## Outputs
+
+- `specs/<feature>/spec.md`
+- `specs/<feature>/checklists/requirements.md`
+- New feature branch created by `.specify/scripts/bash/create-new-feature.sh`
+
+## Next Steps
+
+After generating the spec:
+
+- **Clarify** requirements with speckit-clarify.
+- **Plan** implementation with speckit-plan.
+
 ## General Guidelines
 
 ## Quick Guidelines

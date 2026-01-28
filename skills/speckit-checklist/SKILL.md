@@ -37,7 +37,7 @@ If the request is empty or unclear, ask a targeted question before continuing.
 
 **Metaphor**: If your spec is code written in English, the checklist is its unit test suite. You're testing whether the requirements are well-written, complete, unambiguous, and ready for implementation - NOT whether the implementation works.
 
-## Execution Steps
+## Workflow
 
 1. **Setup**: Run `.specify/scripts/bash/check-prerequisites.sh --json` from repo root and parse JSON for FEATURE_DIR and AVAILABLE_DOCS list.
    - All file paths must be absolute.
@@ -298,3 +298,7 @@ Sample items:
 - Correct: Validation of requirement quality
 - Wrong: "Does it do X?"
 - Correct: "Is X clearly specified?"
+
+## Outputs
+
+- `specs/<feature>/checklists/<domain>.md` (new checklist file per run)

@@ -181,3 +181,13 @@ Behavior rules:
 - If quota reached with unresolved high-impact categories remaining, explicitly flag them under Deferred with rationale.
 
 Context for prioritization: the user's request and any stated constraints
+
+## Outputs
+
+- Updated `specs/<feature>/spec.md` with clarifications appended and integrated
+
+## Next Steps
+
+After clarifications are resolved:
+
+- **Plan** implementation with speckit-plan.
