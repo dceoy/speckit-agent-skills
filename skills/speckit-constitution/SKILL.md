@@ -88,3 +88,14 @@ If the user supplies partial updates (e.g., only one principle revision), still 
 If critical info missing (e.g., ratification date truly unknown), insert `TODO(<FIELD_NAME>): explanation` and include in the Sync Impact Report under deferred items.
 
 Do not create a new template; always operate on the existing `.specify/memory/constitution.md` file.
+
+## Outputs
+
+- Updated `.specify/memory/constitution.md` (with Sync Impact Report comment)
+- Any updated templates or runtime guidance files required to stay consistent with the constitution
+
+## Next Steps
+
+After updating the constitution:
+
+- **Specify** new features with speckit-specify.

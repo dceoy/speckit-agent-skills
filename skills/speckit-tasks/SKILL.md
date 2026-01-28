@@ -133,3 +133,14 @@ Every task MUST strictly follow this format:
   - Within each story: Tests (if requested) → Models → Services → Endpoints → Integration
   - Each phase should be a complete, independently testable increment
 - **Final Phase**: Polish & Cross-Cutting Concerns
+
+## Outputs
+
+- `specs/<feature>/tasks.md`
+
+## Next Steps
+
+After tasks are generated:
+
+- **Analyze** cross-artifact consistency with speckit-analyze.
+- **Implement** the plan with speckit-implement.

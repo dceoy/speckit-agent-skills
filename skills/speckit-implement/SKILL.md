@@ -140,3 +140,9 @@ If tasks are missing or incomplete, ask the user to run speckit-tasks first.
    - Report final status with summary of completed work
 
 Note: This skill assumes a complete task breakdown exists in tasks.md. If tasks are incomplete or missing, suggest running speckit-tasks first to regenerate the task list.
+
+## Outputs
+
+- Implementation changes in the codebase
+- Updated `specs/<feature>/tasks.md` with completed tasks checked off
+- Any generated/updated ignore files (e.g., `.gitignore`, `.dockerignore`, `.eslintignore`, `.prettierignore`)
