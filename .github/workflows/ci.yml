@@ -11,20 +11,6 @@ on:
       - opened
       - synchronize
       - reopened
-      - ready_for_review
-  issue_comment:
-    types:
-      - created
-  pull_request_review_comment:
-    types:
-      - created
-  issues:
-    types:
-      - opened
-      - assigned
-  pull_request_review:
-    types:
-      - submitted
   workflow_dispatch:  # checkov:skip=CKV_GHA_7:workflow_dispatch inputs are required for manual runs
     inputs:
       workflow:
@@ -35,38 +21,19 @@ on:
         description: Choose the workflow to run
         default: update
 jobs:
-  claude-code-review:
+  speckit-init:
     if: >
-      github.event_name == 'pull_request'
-      && github.event.pull_request.draft == false
-      && (! endswith(github.event.pull_request.user.login, '[bot]'))
-      && (! startsWith(github.head_ref, 'dependabot/'))
-      && (! startsWith(github.head_ref, 'renovate/'))
+      github.event_name == 'push'
+      || github.event_name == 'pull_request'
+      || (github.event_name == 'workflow_dispatch' && inputs.workflow == 'update')
     permissions:
-      contents: read
+      contents: write
       pull-requests: write
-      issues: write
-      id-token: write
-      actions: read
-    uses: dceoy/gh-actions-for-devops/.github/workflows/claude-code-review.yml@main   # zizmor: ignore[unpinned-uses]
+    uses: dceoy/gh-actions-for-devops/.github/workflows/speckit-init.yml@main   # zizmor: ignore[unpinned-uses]
+    with:
+      ai-assistants: claude,codex,gemini,copilot,opencode
+      version-md-file-to-write: VERSION.md
     secrets:
-      CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  claude-code-bot:
-    if: >
-      (github.event_name == 'issue_comment' && contains(github.event.comment.body, '@claude'))
-      || (github.event_name == 'pull_request_review_comment' && contains(github.event.comment.body, '@claude'))
-      || (github.event_name == 'pull_request_review' && contains(github.event.review.body, '@claude'))
-      || (github.event_name == 'issues' && (contains(github.event.issue.body, '@claude') || contains(github.event.issue.title, '@claude')))
-    permissions:
-      contents: read
-      pull-requests: write
-      issues: write
-      id-token: write
-      actions: read
-    uses: dceoy/gh-actions-for-devops/.github/workflows/claude-code-bot.yml@main  # zizmor: ignore[unpinned-uses]
-    secrets:
-      CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   dependabot-auto-merge:
     if: >
@@ -78,19 +45,5 @@ jobs:
     uses: dceoy/gh-actions-for-devops/.github/workflows/dependabot-auto-merge.yml@main  # zizmor: ignore[unpinned-uses]
     with:
       unconditional: true
-    secrets:
-      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  speckit-init:
-    if: >
-      github.event_name == 'push'
-      || (github.event_name == 'pull_request' && github.event.action != 'ready_for_review')
-      || (github.event_name == 'workflow_dispatch' && inputs.workflow == 'update')
-    permissions:
-      contents: write
-      pull-requests: write
-    uses: dceoy/gh-actions-for-devops/.github/workflows/speckit-init.yml@main   # zizmor: ignore[unpinned-uses]
-    with:
-      ai-assistants: claude,codex,gemini,copilot,opencode
-      version-md-file-to-write: VERSION.md
     secrets:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
