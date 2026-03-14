@@ -57,13 +57,8 @@ flowchart TD
   %% Core (recommended order)
   C0["speckit-constitution"] --> C1["speckit-specify"] --> C2["speckit-plan"] --> C3["speckit-tasks"] --> C4["speckit-implement"]
 
-  %% Alternative entry for existing code
-  C0 --> FC["speckit-baseline"]
-  FC --> C2
-
   %% Optional (dashed = insert/assist)
   C1 -.-> O1["speckit-clarify"]
-  FC -.-> O1
   O1 -.-> C2
 
   C3 -.-> O2["speckit-analyze"]
@@ -72,7 +67,6 @@ flowchart TD
   C3 -.-> O4["speckit-taskstoissues"]
 
   C1 -.-> O3["speckit-checklist"]
-  FC -.-> O3
   C2 -.-> O3
   C3 -.-> O3
 ```
