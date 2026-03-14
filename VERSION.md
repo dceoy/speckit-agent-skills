@@ -12,9 +12,9 @@
 
 ╭────────────────────────── Specify CLI Information ───────────────────────────╮
 │                                                                              │
-│         CLI Version    0.2.1                                                 │
-│    Template Version    0.2.1                                                 │
-│            Released    2026-03-11                                            │
+│         CLI Version    0.3.0                                                 │
+│    Template Version    0.3.0                                                 │
+│            Released    2026-03-13                                            │
 │                                                                              │
 │              Python    3.12.3                                                │
 │            Platform    Linux                                                 │
