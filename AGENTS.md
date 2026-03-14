@@ -36,8 +36,8 @@
 
 ## Commit & Pull Request Guidelines
 
-- Format Markdown files with `npx prettier --write` and lint Bash scripts with `shellcheck` before committing or creating a PR.
-- If you change `.github/workflows/`, lint workflow files with `actionslint`, `yamllint`, `zizmor --fix=safe`, and `checkov --framework=github_actions,github_configuration`.
+- Format Markdown files with `npx prettier --write` before committing.
+- Lint Bash scripts with `shellcheck`, YAML files with `yamllint`, and GitHub Actions workflow files with `actionslint`, `zizmor --fix=safe`, and `checkov --framework=all`.
 - Keep PRs focused and include: concise summary, affected workflow paths, and linked issue/context.
 - Branch names use appropriate prefixes on creation (e.g., `feature/...`, `bugfix/...`, `refactor/...`, `docs/...`, `chore/...`).
 - When instructed to create a PR, create it as a draft with appropriate labels by default.
