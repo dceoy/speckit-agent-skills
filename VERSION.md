@@ -12,14 +12,12 @@
 
 ╭────────────────────────── Specify CLI Information ───────────────────────────╮
 │                                                                              │
-│         CLI Version    0.3.0                                                 │
-│    Template Version    0.3.0                                                 │
-│            Released    2026-03-13                                            │
+│     CLI Version    0.11.3                                                    │
 │                                                                              │
-│              Python    3.12.3                                                │
-│            Platform    Linux                                                 │
-│        Architecture    x86_64                                                │
-│          OS Version    #1 SMP Mon Jul 21 20:38:16 UTC 2025                   │
+│          Python    3.12.3                                                    │
+│        Platform    Linux                                                     │
+│    Architecture    x86_64                                                    │
+│      OS Version    #1 SMP Mon Jul 21 20:38:16 UTC 2025                       │
 │                                                                              │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 
