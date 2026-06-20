@@ -75,7 +75,7 @@ If the spec is missing, ask the user to run speckit-specify first.
 
 3. **Agent context update**:
    - Run `.specify/scripts/bash/update-agent-context.sh <agent_type>`
-   - Use the current runtime agent type (e.g., claude, codex, copilot). Leave empty to update all existing agent files.
+   - Use the current runtime agent type (e.g., claude, codex, opencode). Leave empty to update all existing agent files.
    - Update the appropriate agent-specific context file
    - Add only new technology from current plan
    - Preserve manual additions between markers

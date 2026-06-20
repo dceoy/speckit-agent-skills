@@ -6,10 +6,10 @@ Agent skills for [Spec Kit](https://github.com/github/spec-kit)
 
 This repository provides reusable skills and templates for multiple agent runtimes:
 
-- **Shared skills** - Source skills live in `skills/` and are symlinked to `.claude/skills`, `.codex/skills`, and `.github/skills`
+- **Shared skills** - Source skills live in `skills/` and are symlinked to `.claude/skills` and `.agents/skills`
 - **Claude Code** - Spec Kit commands in `.claude/commands/` (skills via the symlinked `.claude/skills`)
-- **Codex CLI** - Prompt files in `.codex/prompts/` (skills via the symlinked `.codex/skills`)
-- **GitHub Copilot CLI** - Agent files in `.github/agents/`, prompt files in `.github/prompts/`, skills via `.github/skills`
+- **Codex CLI** - Prompt files in `.codex/prompts/`
+- **OpenCode** - Command files in `.opencode/command/` (skills via the symlinked `.agents/skills`)
 - **Spec Kit** - Spec-Driven Development workflow skills (`speckit-*`) across all runtimes
 
 Each skill directory has a `SKILL.md` with YAML front matter that includes the skill configuration and documentation.
@@ -79,8 +79,8 @@ flowchart TD
 ### Runtime access
 
 - **Claude Code:** `.claude/commands/` (Spec Kit prompts) and `.claude/skills` (symlink to `../skills`)
-- **Codex CLI:** `.codex/prompts/` (Spec Kit prompts) and `.codex/skills` (symlink to `../skills`)
-- **GitHub Copilot CLI:** `.github/agents/` (Spec Kit agents), `.github/prompts/`, `.github/skills` (symlink to `../skills`)
+- **Codex CLI:** `.codex/prompts/` (Spec Kit prompts)
+- **OpenCode:** `.opencode/command/` (Spec Kit commands) and `.agents/skills` (symlink to `../skills`)
 
 ## Structure
 
@@ -91,12 +91,12 @@ flowchart TD
 │   ├── commands/        # Claude Code command prompts (speckit.*)
 │   └── skills -> ../skills
 ├── .codex/
-│   ├── prompts/         # Codex CLI prompt files (speckit.*)
+│   └── prompts/         # Codex CLI prompt files (speckit.*)
+├── .opencode/
+│   └── command/         # OpenCode command files (speckit.*)
+├── .agents/
 │   └── skills -> ../skills
 ├── .github/
-│   ├── agents/          # GitHub Copilot CLI agents (speckit.*.agent.md)
-│   ├── prompts/         # GitHub Copilot CLI prompts (speckit.*.prompt.md)
-│   ├── skills -> ../skills
 │   └── workflows/       # CI workflows (ci.yml)
 └── .specify/            # Spec Kit templates and memory files
     ├── memory/
@@ -110,8 +110,8 @@ flowchart TD
 Install and authenticate the required CLI tools before running skills:
 
 - **Claude Code** - For `.claude/commands/` and shared skills via `.claude/skills`
-- **GitHub Copilot CLI** - For `.github/agents/` and shared skills via `.github/skills`
-- **OpenAI Codex CLI** - For `.codex/prompts/` and shared skills via `.codex/skills`
+- **OpenAI Codex CLI** - For `.codex/prompts/`
+- **OpenCode** - For `.opencode/command/` and shared skills via `.agents/skills`
 - **Spec Kit** - Install from [github.com/github/spec-kit](https://github.com/github/spec-kit)
 
 ## Usage notes

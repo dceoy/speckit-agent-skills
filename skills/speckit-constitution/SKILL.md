@@ -46,11 +46,10 @@ Follow this execution flow:
    - Read `.specify/templates/plan-template.md` and ensure any "Constitution Check" or rules align with updated principles.
    - Read `.specify/templates/spec-template.md` for scope/requirements alignment—update if constitution adds/removes mandatory sections or constraints.
    - Read `.specify/templates/tasks-template.md` and ensure task categorization reflects new or removed principle-driven task types (e.g., observability, versioning, testing discipline).
-   - Review runtime prompts/agents for outdated references and align with updated principles:
+   - Review runtime prompts/commands for outdated references and align with updated principles:
      - `.claude/commands/speckit.*.md`
      - `.codex/prompts/speckit.*.md`
-     - `.github/prompts/speckit.*.prompt.md`
-     - `.github/agents/speckit.*.agent.md`
+     - `.opencode/command/speckit.*.md`
      - `skills/speckit-*/SKILL.md`
    - Read any runtime guidance docs (e.g., `README.md`, `docs/quickstart.md`, or agent-specific guidance files if present). Update references to principles changed.
 
