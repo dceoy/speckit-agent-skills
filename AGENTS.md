@@ -47,3 +47,10 @@
 - Keep workflow content synchronized across skills, prompts, and templates.
 - The canonical order in this repo is `constitution -> specify` or `baseline -> clarify -> plan -> tasks -> analyze -> implement`.
 - If you add or rename a step, update the source skill and every affected runtime wrapper in the same change.
+
+<!-- SPECKIT START -->
+
+For additional context about technologies to be used, project structure,
+shell commands, and other important information, read the current plan
+
+<!-- SPECKIT END -->
