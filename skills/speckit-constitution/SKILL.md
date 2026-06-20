@@ -49,7 +49,6 @@ Follow this execution flow:
    - Review runtime prompts/agents for outdated references and align with updated principles:
      - `.claude/commands/speckit.*.md`
      - `.codex/prompts/speckit.*.md`
-     - `.gemini/commands/speckit.*.toml`
      - `.github/prompts/speckit.*.prompt.md`
      - `.github/agents/speckit.*.agent.md`
      - `skills/speckit-*/SKILL.md`

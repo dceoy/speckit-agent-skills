@@ -4,8 +4,8 @@
 
 - `skills/` is the canonical source for shared skills.
 - Each skill lives in `skills/<kebab-name>/SKILL.md` and includes YAML front matter.
-- Runtime-specific entry points live in `.claude/commands/`, `.codex/prompts/`, `.github/agents/`, `.github/prompts/`, and `.gemini/commands/`.
-- Keep filenames aligned across runtimes, for example `speckit.plan.md`, `speckit.plan.prompt.md`, and `speckit.plan.toml`.
+- Runtime-specific entry points live in `.claude/commands/`, `.codex/prompts/`, `.github/agents/`, and `.github/prompts/`.
+- Keep filenames aligned across runtimes, for example `speckit.plan.md`, `speckit.plan.prompt.md`, and `speckit.plan.agent.md`.
 - Spec Kit support files live in `.specify/scripts/bash/` and `.specify/templates/`.
 - GitHub automation is defined in `.github/workflows/`.
 - `CLAUDE.md` is a symlink to this file, so edit `AGENTS.md` directly.

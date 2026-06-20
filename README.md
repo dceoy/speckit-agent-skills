@@ -10,7 +10,6 @@ This repository provides reusable skills and templates for multiple agent runtim
 - **Claude Code** - Spec Kit commands in `.claude/commands/` (skills via the symlinked `.claude/skills`)
 - **Codex CLI** - Prompt files in `.codex/prompts/` (skills via the symlinked `.codex/skills`)
 - **GitHub Copilot CLI** - Agent files in `.github/agents/`, prompt files in `.github/prompts/`, skills via `.github/skills`
-- **Gemini CLI** - Command files in `.gemini/commands/`
 - **Spec Kit** - Spec-Driven Development workflow skills (`speckit-*`) across all runtimes
 
 Each skill directory has a `SKILL.md` with YAML front matter that includes the skill configuration and documentation.
@@ -82,7 +81,6 @@ flowchart TD
 - **Claude Code:** `.claude/commands/` (Spec Kit prompts) and `.claude/skills` (symlink to `../skills`)
 - **Codex CLI:** `.codex/prompts/` (Spec Kit prompts) and `.codex/skills` (symlink to `../skills`)
 - **GitHub Copilot CLI:** `.github/agents/` (Spec Kit agents), `.github/prompts/`, `.github/skills` (symlink to `../skills`)
-- **Gemini CLI:** `.gemini/commands/` (Spec Kit prompts)
 
 ## Structure
 
@@ -95,8 +93,6 @@ flowchart TD
 ├── .codex/
 │   ├── prompts/         # Codex CLI prompt files (speckit.*)
 │   └── skills -> ../skills
-├── .gemini/
-│   └── commands/        # Gemini CLI prompt files (speckit.*.toml)
 ├── .github/
 │   ├── agents/          # GitHub Copilot CLI agents (speckit.*.agent.md)
 │   ├── prompts/         # GitHub Copilot CLI prompts (speckit.*.prompt.md)
@@ -116,7 +112,6 @@ Install and authenticate the required CLI tools before running skills:
 - **Claude Code** - For `.claude/commands/` and shared skills via `.claude/skills`
 - **GitHub Copilot CLI** - For `.github/agents/` and shared skills via `.github/skills`
 - **OpenAI Codex CLI** - For `.codex/prompts/` and shared skills via `.codex/skills`
-- **Gemini CLI** - For `.gemini/commands/`
 - **Spec Kit** - Install from [github.com/github/spec-kit](https://github.com/github/spec-kit)
 
 ## Usage notes
