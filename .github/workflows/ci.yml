@@ -42,6 +42,8 @@ jobs:
       contents: write
       pull-requests: write
       actions: read
+      checks: read
+      statuses: read
     uses: dceoy/gh-actions-for-devops/.github/workflows/dependabot-auto-merge.yml@main  # zizmor: ignore[unpinned-uses]
     with:
       unconditional: true
