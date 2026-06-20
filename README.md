@@ -6,10 +6,9 @@ Agent skills for [Spec Kit](https://github.com/github/spec-kit)
 
 This repository provides reusable skills and templates for multiple agent runtimes:
 
-- **Shared skills** - Source skills live in `skills/` and are symlinked to `.claude/skills` and `.agents/skills`
+- **Shared skills** - Source skills live in `skills/` and are symlinked to `.claude/skills`
 - **Claude Code** - Spec Kit commands in `.claude/commands/` (skills via the symlinked `.claude/skills`)
 - **Codex CLI** - Prompt files in `.codex/prompts/`
-- **OpenCode** - Command files in `.opencode/command/` (skills via the symlinked `.agents/skills`)
 - **Spec Kit** - Spec-Driven Development workflow skills (`speckit-*`) across all runtimes
 
 Each skill directory has a `SKILL.md` with YAML front matter that includes the skill configuration and documentation.
@@ -80,7 +79,6 @@ flowchart TD
 
 - **Claude Code:** `.claude/commands/` (Spec Kit prompts) and `.claude/skills` (symlink to `../skills`)
 - **Codex CLI:** `.codex/prompts/` (Spec Kit prompts)
-- **OpenCode:** `.opencode/command/` (Spec Kit commands) and `.agents/skills` (symlink to `../skills`)
 
 ## Structure
 
@@ -92,10 +90,6 @@ flowchart TD
 │   └── skills -> ../skills
 ├── .codex/
 │   └── prompts/         # Codex CLI prompt files (speckit.*)
-├── .opencode/
-│   └── command/         # OpenCode command files (speckit.*)
-├── .agents/
-│   └── skills -> ../skills
 ├── .github/
 │   └── workflows/       # CI workflows (ci.yml)
 └── .specify/            # Spec Kit templates and memory files
@@ -111,7 +105,6 @@ Install and authenticate the required CLI tools before running skills:
 
 - **Claude Code** - For `.claude/commands/` and shared skills via `.claude/skills`
 - **OpenAI Codex CLI** - For `.codex/prompts/`
-- **OpenCode** - For `.opencode/command/` and shared skills via `.agents/skills`
 - **Spec Kit** - Install from [github.com/github/spec-kit](https://github.com/github/spec-kit)
 
 ## Usage notes

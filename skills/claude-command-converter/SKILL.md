@@ -11,7 +11,7 @@ Convert Claude Code commands to standard Agent Skills format for portability acr
 
 - Migrating existing `.claude/commands/*.md` files to `skills/*/SKILL.md` format.
 - Creating portable skills from Claude Code-specific commands.
-- Standardizing command definitions for use with Claude Code, Codex CLI, OpenCode, and other runtimes.
+- Standardizing command definitions for use with Claude Code, Codex CLI, and other runtimes.
 
 ## Inputs
 

@@ -49,7 +49,6 @@ Follow this execution flow:
    - Review runtime prompts/commands for outdated references and align with updated principles:
      - `.claude/commands/speckit.*.md`
      - `.codex/prompts/speckit.*.md`
-     - `.opencode/command/speckit.*.md`
      - `skills/speckit-*/SKILL.md`
    - Read any runtime guidance docs (e.g., `README.md`, `docs/quickstart.md`, or agent-specific guidance files if present). Update references to principles changed.
 

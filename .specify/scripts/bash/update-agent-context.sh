@@ -31,12 +31,12 @@
 #
 # 5. Multi-Agent Support
 #    - Handles agent-specific file paths and naming conventions
-#    - Supports: Claude, Cursor, Qwen, opencode, Codex, Windsurf, Kilo Code, Auggie CLI, Roo Code, CodeBuddy CLI, Qoder CLI, Amp, SHAI, Tabnine CLI, Kiro CLI, Mistral Vibe, Kimi Code, Antigravity or Generic
+#    - Supports: Claude, Cursor, Qwen, Codex, Windsurf, Kilo Code, Auggie CLI, Roo Code, CodeBuddy CLI, Qoder CLI, Amp, SHAI, Tabnine CLI, Kiro CLI, Mistral Vibe, Kimi Code, Antigravity or Generic
 #    - Can update single agents or all existing agent files
 #    - Creates default Claude file if no agent files exist
 #
 # Usage: ./update-agent-context.sh [agent_type]
-# Agent types: claude|cursor-agent|qwen|opencode|codex|windsurf|kilocode|auggie|roo|codebuddy|amp|shai|tabnine|kiro-cli|agy|bob|vibe|qodercli|kimi|generic
+# Agent types: claude|cursor-agent|qwen|codex|windsurf|kilocode|auggie|roo|codebuddy|amp|shai|tabnine|kiro-cli|agy|bob|vibe|qodercli|kimi|generic
 # Leave empty to update all existing agent files
 
 set -e
@@ -620,9 +620,6 @@ update_specific_agent() {
         qwen)
             update_agent_file "$QWEN_FILE" "Qwen Code" || return 1
             ;;
-        opencode)
-            update_agent_file "$AGENTS_FILE" "opencode" || return 1
-            ;;
         codex)
             update_agent_file "$AGENTS_FILE" "Codex CLI" || return 1
             ;;
@@ -673,7 +670,7 @@ update_specific_agent() {
             ;;
         *)
             log_error "Unknown agent type '$agent_type'"
-            log_error "Expected: claude|cursor-agent|qwen|opencode|codex|windsurf|kilocode|auggie|roo|codebuddy|amp|shai|tabnine|kiro-cli|agy|bob|vibe|qodercli|kimi|generic"
+            log_error "Expected: claude|cursor-agent|qwen|codex|windsurf|kilocode|auggie|roo|codebuddy|amp|shai|tabnine|kiro-cli|agy|bob|vibe|qodercli|kimi|generic"
             exit 1
             ;;
     esac
@@ -706,7 +703,7 @@ update_all_existing_agents() {
     update_if_new "$CLAUDE_FILE" "Claude Code"
     update_if_new "$CURSOR_FILE" "Cursor IDE"
     update_if_new "$QWEN_FILE" "Qwen Code"
-    update_if_new "$AGENTS_FILE" "Codex/opencode"
+    update_if_new "$AGENTS_FILE" "Codex CLI"
     update_if_new "$AMP_FILE" "Amp"
     update_if_new "$KIRO_FILE" "Kiro CLI"
     update_if_new "$BOB_FILE" "IBM Bob"
@@ -745,7 +742,7 @@ print_summary() {
     fi
     
     echo
-    log_info "Usage: $0 [claude|cursor-agent|qwen|opencode|codex|windsurf|kilocode|auggie|roo|codebuddy|amp|shai|tabnine|kiro-cli|agy|bob|vibe|qodercli|kimi|generic]"
+    log_info "Usage: $0 [claude|cursor-agent|qwen|codex|windsurf|kilocode|auggie|roo|codebuddy|amp|shai|tabnine|kiro-cli|agy|bob|vibe|qodercli|kimi|generic]"
 }
 
 #==============================================================================

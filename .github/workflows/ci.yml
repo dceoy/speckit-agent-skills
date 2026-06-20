@@ -31,7 +31,7 @@ jobs:
       pull-requests: write
     uses: dceoy/gh-actions-for-devops/.github/workflows/speckit-init.yml@main   # zizmor: ignore[unpinned-uses]
     with:
-      ai-assistants: claude,codex,opencode
+      ai-assistants: claude,codex
       version-md-file-to-write: VERSION.md
     secrets:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
