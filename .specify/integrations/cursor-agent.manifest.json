@@ -1,13 +1,13 @@
 {
   "integration": "cursor-agent",
-  "version": "1.0.8",
-  "installed_at": "2026-09-17T19:44:45.439862+00:00",
+  "version": "1.0.12",
+  "installed_at": "2026-09-28T19:46:09.132298+00:00",
   "files": {
     ".cursor/skills/speckit-analyze/SKILL.md": "60cbd0a4bb5c01bc5d447e5d42543b02ebf1560a2b9bfcb750b3502c5941a711",
     ".cursor/skills/speckit-clarify/SKILL.md": "457e6985a30cf6b3d89990b9ab0f198803398c5cd1a35b62f4ee3e59c8dc30d3",
     ".cursor/skills/speckit-constitution/SKILL.md": "177600a10d466eac78014a3b65d78663e24c05463266df539b5be9830a81c18e",
     ".cursor/skills/speckit-implement/SKILL.md": "0c565295d8b1de03821812be86e6d5bba68268f40d52550499110ab9cad1b118",
-    ".cursor/skills/speckit-converge/SKILL.md": "b5631fee93ac4206b76471ff162e9e167e02d028f12f5fc409df63513b116dbc",
+    ".cursor/skills/speckit-converge/SKILL.md": "90c6a2cf400d114a41945745aeadc94ebcd69f4eb12dd723635ca153806bced6",
     ".cursor/skills/speckit-plan/SKILL.md": "c77d361665b34d5870dd1ffe9d2c805700a36cfacd35c63a935ea6edcb100762",
     ".cursor/skills/speckit-checklist/SKILL.md": "43009036898a3242742336fd3582c2c5909d12fd9a7d6894eb8608b43ccd27ad",
     ".cursor/skills/speckit-specify/SKILL.md": "342dd2173103ce701b2bae2f489b462da19fc7369d920c93df10754be2216be8",
