@@ -35,6 +35,12 @@ jobs:
       version-md-file-to-write: VERSION.md
     secrets:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  github-actions-lint-and-scan:
+    permissions:
+      contents: read
+      actions: read
+      security-events: write
+    uses: dceoy/gha-for-devops/.github/workflows/github-actions-lint-and-scan.yml@main  # zizmor: ignore[unpinned-uses]
   markdown-lint:
     if: >
       github.event_name == 'push' || github.event_name == 'pull_request'
