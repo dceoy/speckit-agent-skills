@@ -1,5 +1,5 @@
 ---
-name: Bootstrap Actions lockfile
+name: Bootstrap Actions lockfile and verification workflow
 on:
   push:
     branches: [codex/add-actions-lockfiles]
