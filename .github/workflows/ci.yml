@@ -20,6 +20,8 @@ on:
           - update
         description: Choose the workflow to run
         default: update
+permissions:
+  contents: read
 jobs:
   speckit-init:
     if: >
