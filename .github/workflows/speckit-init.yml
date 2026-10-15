@@ -89,7 +89,7 @@ jobs:
         env:
           VERSION_MD_FILE: ${{ inputs.version-md-file-to-write }}
         run: |
-          printf '# Spec Kit Version\n\n```text\n%s\n```\n' "$(specify --version)" | tee "${VERSION_MD_FILE}"
+          printf '%s\n' '# Spec Kit Version' '' '```text' "$(specify --version)" '```' | tee "${VERSION_MD_FILE}"
       - name: Check whether Spec Kit version changed
         id: version-changed
         if: inputs.version-md-file-to-write != null
