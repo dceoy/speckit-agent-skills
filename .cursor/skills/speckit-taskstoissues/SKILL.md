@@ -1,19 +1,11 @@
 ---
 name: "speckit-taskstoissues"
-description: "Deprecated: Convert existing tasks into actionable, dependency-ordered GitHub issues for the feature based on available design artifacts."
+description: "Convert existing tasks into actionable, dependency-ordered GitHub issues for the feature based on available design artifacts."
 compatibility: "Requires spec-kit project structure with .specify/ directory"
 metadata:
   author: "github-spec-kit"
   source: "templates/commands/taskstoissues.md"
 ---
-
-## Deprecation Notice
-
-You **MUST display the following concise warning first**, as the first step of this command and before the User Input and Pre-Execution Checks sections below:
-
-> ⚠️ `/speckit-taskstoissues` is deprecated and will be removed in a future minor release. Use the bundled `github` extension instead: run `specify extension add github`, then invoke `/speckit-github-taskstoissues`.
-
-Continue with the existing workflow unchanged. Do not install or enable the extension automatically, do not stop, and do not run the replacement command.
 
 ## User Input
 
