@@ -42,11 +42,11 @@ jobs:
       contents: read
       actions: read
       security-events: write
-    uses: dceoy/gha-for-devops/.github/workflows/github-actions-lint-and-scan.yml@3754118ff454057e560e78b3bf46178ebb756506
+    uses: dceoy/gha-for-devops/.github/workflows/github-actions-lint-and-scan.yml@main  # zizmor: ignore[unpinned-uses]
   markdown-lint:
     if: >
       github.event_name == 'push' || github.event_name == 'pull_request'
-    uses: dceoy/gha-for-devops/.github/workflows/markdown-lint.yml@3754118ff454057e560e78b3bf46178ebb756506
+    uses: dceoy/gha-for-devops/.github/workflows/markdown-lint.yml@main  # zizmor: ignore[unpinned-uses]
     with:
       search-path: .
   dependabot-auto-merge:
@@ -60,7 +60,7 @@ jobs:
       actions: read
       checks: read
       statuses: read
-    uses: dceoy/gha-for-devops/.github/workflows/dependabot-auto-merge.yml@3754118ff454057e560e78b3bf46178ebb756506
+    uses: dceoy/gha-for-devops/.github/workflows/dependabot-auto-merge.yml@main  # zizmor: ignore[unpinned-uses]
     with:
       unconditional: true
     secrets:
