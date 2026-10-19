@@ -89,7 +89,7 @@ jobs:
         env:
           VERSION_MD_FILE: ${{ inputs.version-md-file-to-write }}
         run: |
-          printf '# Spec Kit Version\n\n```text\n%s\n```\n' "$(specify --version)" | tee "${VERSION_MD_FILE}"
+          printf '%s\n' '# Spec Kit Version' '' '```text' "$(specify --version)" '```' | tee "${VERSION_MD_FILE}"
       - name: Check whether Spec Kit version changed
         id: version-changed
         if: inputs.version-md-file-to-write != null
@@ -184,8 +184,9 @@ jobs:
           find . -type f -name '*.she' -delete
       - name: Commit and push the changes
         if: >
-          inputs.version-md-file-to-write == null
-          || steps.version-changed.outputs.changed == 'true'
+          github.event_name != 'pull_request'
+          && (inputs.version-md-file-to-write == null
+          || steps.version-changed.outputs.changed == 'true')
         uses: EndBug/add-and-commit@cc9c08ba6c8df3b93a8f2db63e89b98368ae2ae8  # v11.1.1
         with:
           add: ${{ inputs.git-add-args }}
