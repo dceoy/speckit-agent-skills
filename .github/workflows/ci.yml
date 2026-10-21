@@ -65,16 +65,3 @@ jobs:
       unconditional: true
     secrets:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  github-codeql-analysis:
-    if: >
-      github.event_name == 'push'
-      ||       github.event_name == 'pull_request'
-      ||       github.event_name == 'workflow_dispatch'
-    permissions:
-      contents: read
-      actions: read
-      security-events: write
-    uses: dceoy/gha-for-devops/.github/workflows/github-codeql-analysis.yml@main  # zizmor: ignore[unpinned-uses]
-    with:
-      language: >
-        ["actions"]
