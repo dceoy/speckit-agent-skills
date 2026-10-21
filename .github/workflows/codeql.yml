@@ -1,0 +1,32 @@
+---
+name: CodeQL
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/**'
+      - '.github/actions/**'
+      - '**/action.yml'
+      - '**/action.yaml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/**'
+      - '.github/actions/**'
+      - '**/action.yml'
+      - '**/action.yaml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  github-codeql-analysis:
+    permissions:
+      contents: read
+      actions: read
+      security-events: write
+    uses: dceoy/gha-for-devops/.github/workflows/github-codeql-analysis.yml@main  # zizmor: ignore[unpinned-uses]
+    with:
+      language: >
+        ["actions"]
