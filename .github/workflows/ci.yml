@@ -36,7 +36,7 @@ jobs:
       ai-assistants: codex,agy,cursor-agent,copilot,opencode,claude
       version-md-file-to-write: VERSION.md
     secrets:
-      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GH_TOKEN: ${{ secrets.GH_TOKEN || secrets.GITHUB_TOKEN }}
   github-actions-lint-and-scan:
     permissions:
       contents: read
