@@ -172,7 +172,7 @@ Most Spec Kit-managed skills are tracked by the manifests in `.specify/integrati
 3. skips regeneration when `VERSION.md` is unchanged,
 4. runs `specify init --force --here --ignore-agent-tools --script sh --integration` for the configured integrations,
 5. formats generated Markdown and JSON, and
-6. commits updated Spec Kit outputs when the tracked version changes.
+6. opens or updates a pull request when the tracked Spec Kit version changes.
 
 Treat manifest-managed runtime files as generated output. Prefer changing the integration configuration or repository-specific skills instead of manually maintaining generated copies.
 

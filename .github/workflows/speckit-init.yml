@@ -31,7 +31,7 @@ on:
       git-add-args:
         required: false
         type: string
-        description: Arguments for the git add command
+        description: Paths to add to the generated-output pull request
         default: .
       version-md-file-to-write:
         required: false
@@ -182,14 +182,18 @@ jobs:
             grep -qF '# shellcheck disable=all' "$f" || sed -ie '2i# shellcheck disable=all' "$f"
           done < <(find . -type f -name '*.sh')
           find . -type f -name '*.she' -delete
-      - name: Commit and push the changes
+      - name: Create or update a pull request for generated changes
         if: >
           github.event_name != 'pull_request'
           && (inputs.version-md-file-to-write == null
           || steps.version-changed.outputs.changed == 'true')
-        uses: EndBug/add-and-commit@cc9c08ba6c8df3b93a8f2db63e89b98368ae2ae8  # v11.1.1
+        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1  # v8.1.1
         with:
-          add: ${{ inputs.git-add-args }}
-          message: Update Spec Kit output files
-          push: true
-          github_token: ${{ secrets.GH_TOKEN || secrets.GITHUB_TOKEN }}  # zizmor: ignore[secrets-outside-env] caller-provided secret
+          token: ${{ secrets.GH_TOKEN || github.token }}
+          add-paths: ${{ inputs.git-add-args }}
+          commit-message: Update Spec Kit output files
+          branch: automation/speckit-output
+          delete-branch: true
+          title: Update generated Spec Kit output
+          body: Update the checked-in Spec Kit files to match the latest release.
+          base: ${{ github.event.repository.default_branch }}
