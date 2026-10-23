@@ -42,7 +42,7 @@ jobs:
       contents: read
       actions: read
       security-events: write
-    uses: dceoy/gha-for-devops/.github/workflows/github-actions-lint-and-scan.yml@fce8635a412621492802f4760a57e9323dddedab
+    uses: dceoy/gha-for-devops/.github/workflows/github-actions-lint-and-scan.yml@v2.0.0  # zizmor: ignore[unpinned-uses]
   markdown-lint:
     if: >
       github.event_name == 'push' || github.event_name == 'pull_request'
