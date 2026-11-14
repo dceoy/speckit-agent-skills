@@ -21,7 +21,7 @@ on:
       prettify-md-and-json:
         required: false
         type: boolean
-        description: Whether to prettify Markdown and JSON files after initialization
+        description: Whether to format Markdown and JSON files with oxfmt after initialization
         default: true
       disable-shellcheck:
         required: false
@@ -111,13 +111,13 @@ jobs:
         run: >
           tr ',' '\n' <<< "${AI_ASSISTANTS}"
           | xargs -L1 -t specify init --force --here --ignore-agent-tools --script "${SCRIPT_TYPE}" --integration
-      - name: Prettify output files
+      - name: Format output files with oxfmt
         if: >
           inputs.prettify-md-and-json
           && (inputs.version-md-file-to-write == null
           || steps.version-changed.outputs.changed == 'true')
         run: >
-          npx prettier --write './**/*.{md,json}'
+          npx --yes oxfmt@0.78.0 --write './**/*.{md,json}'
       - name: Normalize Markdown output
         if: >
           inputs.version-md-file-to-write == null
@@ -167,7 +167,7 @@ jobs:
           git ls-files -z -- '*.md' '*.markdown' \
             | xargs -0 -r npx -y markdownlint-cli2 --fix --config "${config_file}" --
           set -e
-          npx prettier --write './**/*.{md,json}'
+          npx --yes oxfmt@0.78.0 --write './**/*.{md,json}'
           git ls-files -z -- '*.md' '*.markdown' \
             | xargs -0 -r npx -y markdownlint-cli2 --config "${config_file}" --
       - name: Disable shellcheck in Spec Kit shell scripts
