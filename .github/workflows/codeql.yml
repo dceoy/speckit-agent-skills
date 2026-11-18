@@ -18,8 +18,7 @@ on:
       - '**/action.yml'
       - '**/action.yaml'
   workflow_dispatch:
-permissions:
-  contents: read
+permissions: {}
 jobs:
   github-codeql-analysis:
     permissions:

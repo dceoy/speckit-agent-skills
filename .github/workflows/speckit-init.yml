@@ -42,15 +42,16 @@ on:
       GH_TOKEN:
         required: false
         description: GitHub token
-permissions:
-  contents: write
-  pull-requests: write
+permissions: {}
 defaults:
   run:
     shell: bash -euo pipefail {0}
     working-directory: .
 jobs:
   speckit-init:
+    permissions:
+      contents: write
+      pull-requests: write
     runs-on: ubuntu-slim
     steps:
       - name: Checkout repository

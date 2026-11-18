@@ -20,8 +20,7 @@ on:
           - update
         description: Choose the workflow to run
         default: update
-permissions:
-  contents: read
+permissions: {}
 jobs:
   speckit-init:
     if: >
@@ -44,6 +43,8 @@ jobs:
       security-events: write
     uses: dceoy/gha-for-devops/.github/workflows/github-actions-lint-and-scan.yml@9e394d7c18b3a00fb853cd3c693cc4eeb5f0c825  # v2.3.0
   markdown-lint:
+    permissions:
+      contents: read
     if: >
       github.event_name == 'push' || github.event_name == 'pull_request'
     uses: dceoy/gha-for-devops/.github/workflows/markdown-lint.yml@9e394d7c18b3a00fb853cd3c693cc4eeb5f0c825  # v2.3.0
