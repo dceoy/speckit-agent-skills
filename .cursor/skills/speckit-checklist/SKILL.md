@@ -5,7 +5,7 @@ compatibility: "Requires spec-kit project structure with .specify/ directory"
 metadata:
   author: "github-spec-kit"
   source: "templates/commands/checklist.md"
-  version: "1.4.2"
+  version: "1.4.3"
 ---
 
 ## Checklist Purpose: "Unit Tests for English"

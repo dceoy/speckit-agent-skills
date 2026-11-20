@@ -6,7 +6,7 @@ compatibility: "Requires spec-kit project structure with .specify/ directory"
 metadata:
   author: "github-spec-kit"
   source: "templates/commands/constitution.md"
-  version: "1.4.2"
+  version: "1.4.3"
 user-invocable: true
 disable-model-invocation: false
 ---
