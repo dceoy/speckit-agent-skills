@@ -41,13 +41,13 @@ jobs:
       contents: read
       actions: read
       security-events: write
-    uses: dceoy/gha-for-devops/.github/workflows/github-actions-lint-and-scan.yml@a49d8c5289d9ac33c9eef275f0238dd6a8b306d5  # v2.3.5
+    uses: dceoy/gha-for-devops/.github/workflows/github-actions-lint-and-scan.yml@c073f5aac73a01f514f576ad5e7837fdbee7e96e  # v2.3.6
   markdown-lint:
     permissions:
       contents: read
     if: >
       github.event_name == 'push' || github.event_name == 'pull_request'
-    uses: dceoy/gha-for-devops/.github/workflows/markdown-lint.yml@a49d8c5289d9ac33c9eef275f0238dd6a8b306d5  # v2.3.5
+    uses: dceoy/gha-for-devops/.github/workflows/markdown-lint.yml@c073f5aac73a01f514f576ad5e7837fdbee7e96e  # v2.3.6
     with:
       search-path: .
   dependabot-auto-merge:
@@ -61,7 +61,7 @@ jobs:
       actions: read
       checks: read
       statuses: read
-    uses: dceoy/gha-for-devops/.github/workflows/dependabot-auto-merge.yml@a49d8c5289d9ac33c9eef275f0238dd6a8b306d5  # v2.3.5
+    uses: dceoy/gha-for-devops/.github/workflows/dependabot-auto-merge.yml@c073f5aac73a01f514f576ad5e7837fdbee7e96e  # v2.3.6
     with:
       unconditional: true
     secrets:
